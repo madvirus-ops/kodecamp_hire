@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'accounts\./css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts\./css/vendor.css' %}">
+    <link rel="icon" href="{% static 'accounts\favicon.ico' %}">
+    <title>Vendor | CRYSTALEVENT</title>
+</head>
+<body>
+    <section class="mb-2 position-relative">
+        <nav class="navbar tab  navbar-expand-lg navbar-light position-absolute ms-2 mt-2" style="z-index: 1;">
+            <button type="button" class="btn back ms-2"><a href="{% url 'home:index' %}" style="color: #fff;">Back</a></button>
+              <a href="{% url 'home:index' %}" class="navbar-brand marginStyle">
+                  <img
+                  src="{% static 'accounts\./img/landing-page img/site-logo.png' %}"
+                  width="20"
+                  height="20"
+                  class="img-fluid"
+                  alt="logo"
+                  />
+                  <span class="site-logo" style="color: #522B05;">CRYSTALEVENT</span>
+              </a>
+          </nav>
+        <div class="d-flex form-div justify-content-between" style="gap: 1px;">
+            <div class="image position-relative">
+                <div class="wineImg"></div>
+                <div class="position-absolute top-50 form-texts">
+                    <h3 class="text-white mt-3 text-center fs-1">Register to be among  our team</h3>
+                </div>
+            </div>
+            <div class="form-body">
+                
+                <h4 class="text-center pt-5 mb-5 fw-bold">Kindly fill in your details</h4>
+
+                <form method="post" class="">
+                    {% csrf_token %}
+                    <div>
+                        <label class="mb-3 fs-5 fw-bold">Your Name</label>
+                        <input class="form-control m-auto" type="text" name="name" placeholder="Kodeacmp hire" />
+                    </div>
+
+                    <div class="my-4">
+                        <label class="mb-3 fs-5 fw-bold">Email</label>
+                        <input class="form-control m-auto" type="email" name="email" placeholder="Crystalevents247@gmail.com" />
+                    </div>
+
+                    <div>
+                        <label class="mb-3 fs-5 fw-bold">Phone Number</label>
+                        <div class="position-relative form-control h">
+                            <input
+                                class="h-100 m-auto position-absolute top-0 start-0 rounded-start border-0 border-end ps-lg-2"
+                                type="tel" placeholder="+234" name="phonecode" style="width: 15%;" />
+                            <input
+                                class="h-100 m-auto position-absolute top-0 end-0 rounded-end border-0 border-start ps-3"
+                                type="tel" placeholder="80555647382" name="phone" style="width: 85%;" />
+                        </div>
+                    </div>
+
+                    <div class="my-4">
+                        <p class="fw-bold fs-5">Select Categories</p>
+                        <select name="categories" id="categories" class="form-control">
+                            <option value="Photographers" disabled selected value>Photographers</option>
+                            <option value="Event Manager">Event Manager</option>
+                            <option value="Interior Designer">Interior Designer</option>
+                            <option value="Catery">Catery</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="mb-3 fs-5 fw-bold">Address</label>
+                        <input class="form-control m-auto" type="text" name="address" placeholder="Address" />
+                    </div>
+
+                    <div class="">
+                        <p class="fw-bold fs-5">State of residence</p>
+                        <select name="state" id="state" class="form-control">
+                            <option value="select" disabled selected value>select state of residence</option>
+                            <option value="Abia State">Abia State</option>
+                            <option value="Adamawa State">Adamawa State</option>
+                            <option value="Akwa Ibom State">Akwa Ibom State</option>
+                            <option value="Lagos State">Lagos State</option>
+                        </select>
+                    </div>
+
+                    <div class="my-4">
+                        <p class="fw-bold fs-5">LGA</p>
+                        <select name="lga" id="lga" class="form-control">
+                            <option value="select" disabled selected value>Resident local government</option>
+                            <option value="Abia">Abia</option>
+                            <option value="Adamawa">Adamawa</option>
+                            <option value="Akwa Ibom">Akwa Ibom</option>
+                            <option value="Lagos">Lagos </option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="experience" class="mb-3 fw-bold fs-5">Experience</label> <br>
+                        <textarea name="experience" rows="4" id="experience" placeholder="kindly tell us a brief experience of yourself" class="form-control"></textarea>
+                    </div>
+
+                    <div class="d-grid gap-2 bg-hire text-white rounded">
+                        <button class="btn text-white" type="submit">Proceed</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

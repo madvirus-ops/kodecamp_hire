@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Raleway:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Playfair Display;
+}
+
+.bg-color {
+    background-color: #FFEDDC;
+}
+
+body{
+    font-family: Source Sans Pro;
+}
+
+.new-family {
+    font-family: 'Source Sans Pro', sans-serif !important;
+}
+
+.row-card{
+    background-color: #F5820EEF;
+    margin: 0px auto 0px auto;
+    gap: 50px;
+}
+
+
+
+.row-img{
+    background: url(../img/returns-img.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 180px;
+    width: 582px;
+}
+
+.row-text{
+    margin-top: 110px;
+}
+
+@media screen and (max-width: 769px) {
+    .row-img{
+        width: 50px;
+    }
+}
+
+@media screen and (max-width: 426px) {
+    .d-flex{
+        flex-direction: column-reverse;
+    }
+    .row-img{
+        width: 401px;
+    }
+    .row-card{
+        gap: 0px;
+    }
+    .row-text{
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    
+    #sec-five .input-group input {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 376px) {
+    .row-img{
+        width: 10px;
+        padding: 176px;
+    }
+    .row-text{
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    
+    .footer-links {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .row-img{
+        width: 10px;
+        padding: 148px;
+    }
+    .row-card{
+        width: 100%;
+    }
+}

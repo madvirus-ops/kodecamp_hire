@@ -1,0 +1,784 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRYSTALEVENT</title>
+  <link rel="icon" href="{% static 'home\favicon.ico' %}">
+  <link rel="stylesheet" href="{% static 'home\css/bootstrap.min.css' %}" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="{% static 'home\css/style.css' %}" />
+</head>
+
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light py-lg-3 mt-3" style="border: 2px solid #F5820E;">
+      <div class="container">
+        <a href="{% url 'home:index' %}" class="navbar-brand">
+          <img src="{% static 'home\img/landing-page img/site-logo.png' %}" width="20" height="20" class="img-fluid" alt="logo" />
+          <span class="site-logo">CRYSTALEVENT</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto ">
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link fw-bold bg-signup" href="{% url 'accounts:signout' %}">Sign out</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link fw-bold" aria-current="page" href="{% url 'accounts:login' %}">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold bg-signup" href="{% url 'accounts:sign-up' %}">Sign up</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-color">
+      <div class="container">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="{% url 'home:index' %}">
+                <p class="fw-bold me-5 actived">Home</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:service' %}">
+                <p class="fw-bold me-5 ">Services</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:work' %}">
+                <p class="fw-bold me-5">Work</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:faq' %}">
+                <p class="fw-bold me-5">FAQ</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:contact' %}">
+                <p class="fw-bold me-5">Contact Us</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+{% block body %}
+  <section class="position-relative">
+    <div id="sec-one">
+      <div class=" align-items-center justify-content-center gap-3 btn-social">
+        <div>
+          <a href="https://play.google.com/store/apps" style="text-decoration: none;">
+            <button class="btn bg-white d-flex align-items-center text-start text-secondary fw-bold"
+              style="width: 100%;">
+              <img src="{% static 'home\./img/landing-page img/playstore.png' %}" alt="playstore">
+              <small><em>GET ON <br> Google Play</em></small>
+            </button>
+          </a>
+        </div>
+
+        <div>
+          <a href="https://www.apple.com/app-store/" style="text-decoration: none;">
+            <button class="btn bg-white d-flex align-items-center text-start text-secondary fw-bold">
+              <img src="{% static 'home\./img/landing-page img/apple.png' %}" alt="apple store">
+              <small><em>DOWNLOAD ON <br> Apple Store</em> </small>
+            </button>
+          </a>
+        </div>
+      </div>
+
+    </div>
+    <div id="sec-one__container" class=" ">
+      <div class="text-center text-light py-">
+        <h1 class=" fw-bold text-center title">
+          PLAN.ORGANIZE.EXECUTE
+        </h1>
+        <p class="fs-3 sec-title new-family">
+          Create good memories, hire the best hands for a memorable event.
+        </p>
+
+        <a href="{% url 'accounts:sign-up' %}">
+          <button class="btn text-white btn-lg mb-5 mb-3 mt-2  bg-hire" type="button" id="button-addon2">Get
+            Started</button>
+        </a>
+
+        <div class=" align-items-center justify-content-center flex-wrap-reverse gap-5 btn-wrapper">
+
+          <div class="d-flex align-items-center justify-content-center gap-3">
+            <div>
+              <a href="https://play.google.com/store/apps" style="text-decoration: none;">
+                <button
+                  class="btn bg-white d-flex align-items-center text-start text-secondary fw-bold gap-3  bg-hireee">
+                  <img src="{% static 'home\./img/landing-page img/playstore.png' %}" alt="playstore">
+                  <small class="font new-family">GET ON <br> <em>Google Play</em></small>
+                </button>
+              </a>
+            </div>
+
+            <div>
+              <a href="https://www.apple.com/app-store/" style="text-decoration: none;">
+                <button
+                  class=" btn bg-white d-flex align-items-center text-start text-secondary fw-bold gap-lg-3 gap-1 bg-hireee">
+                  <img src="{% static 'home\./img/landing-page img/apple.png' %}" alt="apple store">
+                  <small class="font new-family">DOWNLOAD ON <br> <em>Apple Store</em></small>
+                </button>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="sec-two" class="py-lg-5">
+    <div class="container">
+      <div class="row gx-3 pt-5 justify-content-between">
+        <div class="col-lg-5 text-md-center" data-aos="fade-right">
+          <img src="{% static 'home\./img/landing-page img/dancing.png' %}" class="img-fluid w-100 mb-lg-0 mb-3" alt="people danicng">
+        </div>
+        <div class="col-lg-6 " data-aos="fade-left">
+          <div>
+            <h2 class="display-5 fw-bold text-dark centralize">
+              We have a long history of creating the best events
+            </h2>
+            <p class="lead family-one family-hire pt-2 family-hire new-family">
+              The Event Site was founded by seasoned event organisers, who understand how time consuming it can be to
+              find the right supplier, trusted to deliver brilliant service, on time and on budget.
+            </p>
+            <div class="d-flex cj w-100">
+              <a href="{% url 'accounts:sign-up' %}"><button class="btn bg-hire text-white btn-lg" type="button" id="button-addon2">Get
+                  Started</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- work start here -->
+      <div class="anchor-imgs-mobile mt-5">
+        <div id="carouselExampleDark" class="carousel carousel-dark slide mobile-slide" data-bs-ride="carousel">
+
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="2000">
+
+              <div class="col-lg-6 position-relative banner banners">
+                <img src="{% static 'home\./img/landing-page img/sprint.png' %}" class="img-fluid banner" alt="sprinter">
+                <div class="holder">
+                  <h4 class="text-center text-white">Charity Event</h4>
+                </div>
+              </div>
+
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+
+              <div class="col-lg-6 position-relative banner banners">
+                <img src="{% static 'home\./img/landing-page img/couple.png' %}" class="img-fluid  banner" alt="couple dancing">
+                <div class="holder">
+                  <h4 class="text-center text-white">Private Event</h4>
+                </div>
+              </div>
+
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+
+              <div class="col-lg-6 position-relative banner banners">
+                <img src="{% static 'home\./img/landing-page img/sprint.png' %}" class="img-fluid banner" alt="sprinter">
+                <div class="holder">
+                  <h4 class="text-center text-white">Charity Event</h4>
+                </div>
+              </div>
+
+
+            </div>
+            <div class="carousel-item" data-bs-interval="4000">
+
+              <div class="col-lg-6 position-relative banner banners">
+                <img src="{% static 'home\./img/landing-page img/couple.png' %}" class="img-fluid  banner" alt="couple dancing">
+                <div class="holder">
+                  <h4 class="text-center text-white">Private Event</h4>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="carousel-indicatorss d-flex justify-content-center mt-3">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active carousel-btn"
+              aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"
+              class="carousel-btn"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"
+              class="carousel-btn"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"
+              class="carousel-btn"></button>
+          </div>
+        </div>
+      </div>
+      <!-- work end here -->
+
+
+
+      <div id="organize" class="row gx-3 pt-5 mt-lg-5 ">
+        <div class="col-lg-6">
+          <h3 class="display-5 fw-bold text-dark pt-lg-3 pt-0 mt-lg-3 mt-0 centralize">
+            Organise and plan your event in one click!
+          </h3>
+          <p class="lead family-one family-hire pt-3 family-hire new-family">
+            We remove the hassle of organising your event, no matter how large or small, from small gatherings to major
+            festival.
+          </p>
+          <div class="d-flex cj w-100">
+            <a href="{% url 'accounts:login' %}"><button class="btn bg-hire text-white btn-lg mb-5" type="button"
+                id="button-addon2">Organize Event</button></a>
+          </div>
+        </div>
+        <div class="col-lg-6 anchor-imgs" data-aos="fade-down">
+          <div class="img-container position-relative">
+            <img src="{% static 'home\./img/landing-page img/audience.png' %}" class="img-fluid img" alt="audience">
+            <div class="holder">
+              <h3 class="text-center text-white">Coporate</h3>
+            </div>
+          </div>
+
+          <div class="d-flex flex-wrap align-items-center justify-content-between py-3  gap-2" data-aos="fade-right">
+            <div class="col-lg-6 position-relative banner banners">
+              <img src="{% static 'home\./img/landing-page img/couple.png' %}" class="img-fluid  banner" alt="couple dancing">
+              <div class="holder">
+                <h4 class="text-center text-white">Private Event</h4>
+              </div>
+            </div>
+            <div class="col-lg-6 position-relative banner banners">
+              <img src="{% static 'home\./img/landing-page img/sprint.png' %}" class="img-fluid banner" alt="sprinter">
+              <div class="holder">
+                <h4 class="text-center text-white">Charity Event</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div id="price" class="container text-start py-lg-5  d-flex align-items-center flex-column">
+      <h4 class="display-5 fw-bold text-center pt-5 mb-3 w-100 mx-auto">
+        At Crystal Events, we let our work speak for us
+      </h4>
+
+      <div class="desktop-slide ">
+        <div class="row row-cols-1 row-cols-md-2 g-4 w-100 p-md-5">
+          <div class="col">
+            <div class="card position-relative">
+              <img src="{% static 'home\./img/landing-page img/cake.png' %}" class="img-fluid" alt="cake">
+              <div class="card-body holder p-lg-5">
+                <h5 class="card-title fw-bold">Catering</h5>
+                <p class="card-text w-75 mx-auto new-family">Our Team of experts
+                  take the stress of you by delivering top notch services.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card position-relative">
+              <img src="{% static 'home\./img/landing-page img/photographer.png' %}" class="img-fluid" alt="Photograph">
+
+              <div class="card-body holder p-lg-5">
+                <h5 class="card-title fw-bold">Photography</h5>
+                <p class="card-text w-75 mx-auto new-family">Our Team of experts
+                  take the stress of you by delivering top notch services.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card position-relative">
+              <img src="{% static 'home\./img/landing-page img/disck-jockey.png' %}" class="img-fluid" alt="dj">
+              <div class="card-body holder p-lg-5">
+                <h5 class="card-title fw-bold">Dj</h5>
+                <p class="card-text w-75 mx-auto new-family">Our Team of experts
+                  take the stress of you by delivering top notch services.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card position-relative">
+              <img src="{% static 'home\./img/landing-page img/master-c.png' %}" class="img-fluid" alt="mc">
+              <div class="card-body holder p-lg-5">
+                <h5 class="card-title fw-bold">Mc</h5>
+                <p class="card-text w-75 mx-auto new-family">Our Team of experts
+                  take the stress of you by delivering top notch services.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div id="carouselExampleDark" class="carousel carousel-dark slide mobile-slide" data-bs-ride="carousel">
+
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="3000">
+            <div class="card position-relative">
+              <img src="{% static 'home\./img/landing-page img/cake.png' %}" class="img-fluid" alt="cake">
+              <div class="card-body holder p-lg-5">
+                <h5 class="card-title fw-bold">Catering</h5>
+                <p class="card-text w-75 mx-auto">Our Team of experts
+                  take the stress of you by delivering top notch services.</p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="3000">
+            <div class="card position-relative">
+              <img src="{% static 'home\./img/landing-page img/photographer.png' %}" class="img-fluid" alt="Photograph">
+              <div class="card-body holder p-lg-5">
+                <h5 class="card-title fw-bold">Photography</h5>
+                <p class="card-text w-75 mx-auto">Our Team of experts
+                  take the stress of you by delivering top notch services.</p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="3000">
+            <div class="card position-relative">
+              <img src="{% static 'home\./img/landing-page img/disck-jockey.png' %}" class="img-fluid" alt="dj">
+              <div class="card-body holder p-lg-5">
+                <h5 class="card-title fw-bold">Dj</h5>
+                <p class="card-text w-75 mx-auto">Our Team of experts
+                  take the stress of you by delivering top notch services.</p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="3000">
+            <div class="card position-relative">
+              <img src="{% static 'home\./img/landing-page img/master-c.png' %}" class="img-fluid" alt="mc">
+              <div class="card-body holder p-lg-5">
+                <h5 class="card-title fw-bold">Mc</h5>
+                <p class="card-text w-75 mx-auto">Our Team of experts
+                  take the stress of you by delivering top notch services.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="carousel-indicatorss d-flex justify-content-center mt-3">
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active carousel-btn"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"
+            class="carousel-btn"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"
+            class="carousel-btn"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"
+            class="carousel-btn"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="">
+      <div class="col-lg-6 card mx-auto my-2" style="background-color: #F5820E;">
+        <div class=" p-4 text-center w-lg-75 mx-auto">
+          <p class="fs-1 px-lg-3 pt-3 text-white text-center">Do you have what it takes to be <br> part of our team?
+            Register
+            <br> as a vendor.
+          </p>
+          <a href="vendor.html">
+            <button class="btn btn-light py-3 my-3 btn-lg bg-hires new-family" type="button"
+              id="button-addon2">Register</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+    <section id="" class="py-5 my-2 ">
+      <h2 class="fs-1 fw-bold text-center mx-auto py-3" style="width: 80%;">What our clients have to say</h2>
+      <div id="carouselExampleDark1" class="py-3 carousel carousel-dark slide mx-auto " data-bs-ride="carousel"
+        style="max-width: 90%;">
+
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="2000">
+            <div class="d-flex justify-content-center gap-5 ">
+
+              <div class="bg-white">
+                <div class="card-box p-4 text-center">
+                  <img src="{% static 'home\./img/landing-page img/client-lady3.png' %}" alt="lady smiling">
+                  <h6 class="family-three  family-hire fw-bold pt-3">MD Hexagon systems</h6>
+                  <p class="family-two  family-hire pt-2">I am grateful to Crystal events for making my big day
+                    memorable.
+                  </p>
+                  <div class="d-flex justify-content-center pt-3">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                  </div>
+                  <p class="family-two  family-hire fw-bold pt-2">5 star rating</p>
+                </div>
+              </div>
+
+              <div class="card-holder3 bg-white">
+                <div class="card-box p-4 text-center">
+                  <img src="{% static 'home\./img/landing-page img/client-lady4.png' %}" alt="lady smiling">
+                  <h6 class="family-three  family-hire fw-bold pt-3">MD Hexagon systems</h6>
+                  <p class="family-two  family-hire pt-2">I am grateful to Crystal events for making my big day
+                    memorable.
+                  </p>
+                  <div class="d-flex justify-content-center pt-3">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                  </div>
+                  <p class="family-two  family-hire fw-bold pt-2">5 star rating</p>
+                </div>
+              </div>
+
+              <div class="card-holder2 bg-white">
+                <div class="card-box p-4 text-center">
+                  <img src="{% static 'home\./img/landing-page img/client-lady.png' %}" alt="lady smiling">
+                  <h6 class="family-three  family-hire fw-bold pt-3">MD Hexagon systems</h6>
+                  <p class="family-two  family-hire pt-2">I am grateful to Crystal events for making my big day
+                    memorable.
+                  </p>
+                  <div class="d-flex justify-content-center pt-3">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                  </div>
+                  <p class="family-two  family-hire fw-bold pt-2">5 star rating</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="carousel-item" data-bs-interval="4000">
+            <div class="d-flex justify-content-center gap-5 ">
+
+              <div class="bg-white">
+                <div class="card-box p-4 text-center">
+                  <img src="{% static 'home\./img/landing-page img/client-lady3.png' %}" alt="lady smiling">
+                  <h6 class="family-three  family-hire fw-bold pt-3">MD Hexagon systems</h6>
+                  <p class="family-two  family-hire pt-2">I am grateful to Crystal events for making my big day
+                    memorable.
+                  </p>
+                  <div class="d-flex justify-content-center pt-3">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                  </div>
+                  <p class="family-two  family-hire fw-bold pt-2">5 star rating</p>
+                </div>
+              </div>
+
+              <div class="card-holder3 bg-white">
+                <div class="card-box p-4 text-center">
+                  <img src="{% static 'home\./img/landing-page img/client-lady4.png' %}" alt="lady smiling">
+                  <h6 class="family-three  family-hire fw-bold pt-3">MD Hexagon systems</h6>
+                  <p class="family-two  family-hire pt-2">I am grateful to Crystal events for making my big day
+                    memorable.
+                  </p>
+                  <div class="d-flex justify-content-center pt-3">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                  </div>
+                  <p class="family-two  family-hire fw-bold pt-2">5 star rating</p>
+                </div>
+              </div>
+
+              <div class="card-holder2 bg-white">
+                <div class="card-box p-4 text-center">
+                  <img src="{% static 'home\./img/landing-page img/client-lady.png' %}" alt="lady smiling">
+                  <h6 class="family-three  family-hire fw-bold pt-3">MD Hexagon systems</h6>
+                  <p class="family-two  family-hire pt-2">I am grateful to Crystal events for making my big day
+                    memorable.
+                  </p>
+                  <div class="d-flex justify-content-center pt-3">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                  </div>
+                  <p class="family-two  family-hire fw-bold pt-2">5 star rating</p>
+                </div>
+              </div>
+
+            </div>
+
+
+          </div>
+
+          <div class="carousel-item" data-bs-interval="4000">
+            <div class="d-flex justify-content-center gap-5 ">
+
+              <div class="bg-white">
+                <div class="card-box p-4 text-center">
+                  <img src="{% static 'home\./img/landing-page img/client-lady3.png' %}" alt="lady smiling">
+                  <h6 class="family-three  family-hire fw-bold pt-3">MD Hexagon systems</h6>
+                  <p class="family-two  family-hire pt-2">I am grateful to Crystal events for making my big day
+                    memorable.
+                  </p>
+                  <div class="d-flex justify-content-center pt-3">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                  </div>
+                  <p class="family-two  family-hire fw-bold pt-2">5 star rating</p>
+                </div>
+              </div>
+
+              <div class="card-holder3 bg-white">
+                <div class="card-box p-4 text-center">
+                  <img src="{% static 'home\./img/landing-page img/client-lady4.png' %}" alt="lady smiling">
+                  <h6 class="family-three  family-hire fw-bold pt-3">MD Hexagon systems</h6>
+                  <p class="family-two  family-hire pt-2">I am grateful to Crystal events for making my big day
+                    memorable.
+                  </p>
+                  <div class="d-flex justify-content-center pt-3">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                  </div>
+                  <p class="family-two  family-hire fw-bold pt-2">5 star rating</p>
+                </div>
+              </div>
+
+              <div class="card-holder2 bg-white">
+                <div class="card-box p-4 text-center">
+                  <img src="{% static 'home\./img/landing-page img/client-lady.png' %}" alt="lady smiling">
+                  <h6 class="family-three  family-hire fw-bold pt-3">MD Hexagon systems</h6>
+                  <p class="family-two  family-hire pt-2">I am grateful to Crystal events for making my big day
+                    memorable.
+                  </p>
+                  <div class="d-flex justify-content-center pt-3">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                    <img src="{% static 'home\./img/landing-page img/star.png' %}" alt="star">
+                  </div>
+                  <p class="family-two  family-hire fw-bold pt-2">5 star rating</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Carousel controls -->
+        <div class="d-flex align-items-center justify-content-center pt-3">
+          <div data-bs-target="#carouselExampleDark1" data-bs-slide="prev">
+            <img src="{% static 'home\./img/landing-page img/arrow-left.png' %}" width="25" height="25" alt="arrow left" class="me-4">
+          </div>
+          <div data-bs-target="#carouselExampleDark1" data-bs-slide="next">
+            <img src="{% static 'home\./img/landing-page img/arrow-right.png' %}" width="40" height="40" alt="arrow-right">
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="container">
+      <h3 class="display-5 text-center py-lg-3">Meet our Team</h3>
+      <div class="row gx-5 pt-3 d-flex flex-wrap-reverse">
+        <div class="col-lg-4" data-aos="fade-left">
+          <div>
+            <p class="lead family-one family-hire pt-3 family-hire new-family">
+              Our Team of experts take the stress off you by delivering top notch services.
+            </p>
+            <div class="d-flex cj w-100">
+              <a href="{% url 'home:contact' %}">
+                <button class="btn bg-hire text-white btn-lg mb-5 new-family" type="button" id="button-addon2">Contact
+                  Us</button>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7" data-aos="fade-right">
+          <img src="{% static 'home\./img/landing-page img/team-members.png' %}" class="img-fluid" alt="team members">
+        </div>
+      </div>
+    </div>
+
+    <div id="faq-sec" class="container py-5">
+      <h3 class="display-5 text-center pb-1">Frequently Asked Questions (FAQ)</h3>
+
+      <div class="py-5">
+
+        <a href="#" class="list-group-item  mb-5" style="background-color: #FFF0E1; color: black;">
+          <div class="d-flex w-100 align-items-center">
+            <img src="{% static 'home\./img/landing-page img/orange-line.png' %}" height="50" alt="orange line"><img
+              src="{% static 'home\./img/landing-page img/question.png' %}" width="25" height="25" alt="Question" class="mx-3">
+            <h5 class="my-2 w-100">How do i get started?</h5>
+          </div>
+          <div class="d-flex w-100 align-items-center">
+            <img src="{% static 'home\./img/landing-page img/black-line.png' %}" height="50" alt="black line"><img
+              src="{% static 'home\./img/landing-page img/answer.png' %}" width="25" height="25" alt="Answer" class="mx-3">
+            <p class="family-two  family-hire my-2 w-100">Kindly click on the get started button or you <br> contact
+              us
+              via phone
+              call.
+            </p>
+          </div>
+        </a>
+
+
+        <a href="#price" class="list-group-item  mb-5" style="background-color: #FFF0E1; color: black;">
+          <div class="d-flex w-100 align-items-center">
+            <img src="{% static 'home\./img/landing-page img/orange-line.png' %}" height="50" alt="orange line"><img
+              src="{% static 'home\./img/landing-page img/question.png' %}" width="25" height="25" alt="Question" class="mx-3">
+            <h5 class="my-2 w-100">What is the price range?</h5>
+          </div>
+          <div class="d-flex w-100 align-items-center">
+            <img src="{% static 'home\./img/landing-page img/black-line.png' %}" height="50" alt="black line"><img
+              src="{% static 'home\./img/landing-page img/answer.png' %}" width="25" height="25" alt="Answer" class="mx-3">
+            <p class="family-two  family-hire my-2 w-100">We have a range of prices that fits your budget. <br> Kindly
+              click on the
+              price list to choose.
+            </p>
+          </div>
+
+        </a>
+        <a href="#organize" class="list-group-item mb-5" style="background-color: #FFF0E1; color: black;">
+          <div class="d-flex w-100 align-items-center">
+            <img src="{% static 'home\./img/landing-page img/orange-line.png' %}" height="50" alt="orange line"><img
+              src="{% static 'home\./img/landing-page img/question.png' %}" width="25" height="25" alt="Question" class="mx-3">
+            <h5 class="my-2 w-100">What kind of events do you organize?</h5>
+          </div>
+          <div class="d-flex w-100 align-items-center">
+            <img src="{% static 'home\./img/landing-page img/black-line.png' %}" height="50" alt="black line"><img
+              src="{% static 'home\./img/landing-page img/answer.png' %}" width="25" height="25" alt="Answer" class="mx-3">
+            <p class="family-two  family-hire my-2 w-100">We have experts that cater for all kinds of events. <br>
+              Kindly contact us
+              to learn more
+            </p>
+          </div>
+
+        </a>
+      </div>
+    </div>
+  </section>
+
+{% endblock body %}
+  <footer id="sec-five" class="pt-5">
+    <div class="container">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 mx-auto">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong> Message:</strong> {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            {% endfor %}
+            <form method="post">
+              {% csrf_token %}
+              <div class="input-group my-3 d-flex flex-wrap gap-3 align-items-center justify-content-center">
+                <input type="email" name="email" id="email" class="form-control py-3 d-inline-flex new-family"
+                  style="background-color: #3A3A3A; color: #ffffff;" placeholder="Email Address"
+                  aria-label="Email Address" aria-describedby="button-addon2">
+                <button class="btn bg-hire text-white btn-lg new-family" type="submit"
+                  id="button-addon2">SUBSCRIBE</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <section class="">
+        <div class="container text-white mt-3 footer-links">
+          <div class="row mt-3 text-start">
+            <div class="col-lg-3 col-md-6 col-6 mb-3 new-family">
+              <p class="fw-bold mb-3 new-family">COMPANY</p>
+              <a href="account.html" class="text-secondary text-decoration-none mb-4 d-block new-family">My Account</a>
+              <a href="{% url 'home:about' %}" class="text-secondary text-decoration-none mb-4 d-block new-family">About Us</a>
+              <a href="{% url 'home:faq' %}" class="text-secondary text-decoration-none mb-4 d-block new-family">Faqs</a>
+              <a href="{% url 'home:contact' %}" class="text-secondary text-decoration-none mb-4 d-block new-family ">Contact Us</a>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-6 mb-3 new-family">
+              <p class="fw-bold mb-3 new-family">CUSTOMER SERVICE</p>
+              <a href="{% url 'home:tc' %}" class="text-secondary text-decoration-none mb-4 d-block new-family">Terms &
+                Conditions</a>
+              <a href="{% url 'home:refunds' %}" class="text-secondary text-decoration-none mb-4 d-block new-family">Returns &
+                Refunds</a>
+              <a href="help-support.html" class="text-secondary text-decoration-none mb-4 d-block new-family">Help &
+                Supports</a>
+              <a href="{% url 'home:privacy' %}" class="text-secondary text-decoration-none mb-4 d-block new-family">Privacy</a>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-6 mb-3 new-family">
+              <p class="fw-bold mb-3 new-family">SOCIAL MEIDA</p>
+              <a href="https://twitter.com/"
+                class="text-secondary text-decoration-none mb-4 d-block new-family">Twitter</a>
+              <a href="https://www.linkedin.com/"
+                class="text-secondary text-decoration-none mb-4 d-block new-family">LinkedIn</a>
+              <a href="https://instagram.com/"
+                class="text-secondary text-decoration-none mb-4 d-block new-family">Instagram</a>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-6 mb-3">
+              <p class="fw-bold mb-3 new-family">ARCHIVE</p>
+              <a href="pricelist.html" class="text-secondary text-decoration-none mb-4 d-block new-family">Price
+                List</a>
+              <a href="our-vendor.html" class="text-secondary text-decoration-none mb-4 d-block new-family">Our
+                Vendors</a>
+              <a href="event-category.html" class="text-secondary text-decoration-none mb-4 d-block new-family">Event
+                Category</a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+  </footer>
+
+  <section id="sec-six">
+    <div class="text-center text-light p-3">© Crystal events 2022 all rights reserved.</div>
+  </section>
+
+
+  <script src="{% static 'home\js/script.js' %}"></script>
+  <script src="{% static 'home\js/bootstrap.min.js' %}"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+  <script>
+    AOS.init({
+      duration: 1500,
+      once: true,
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Raleway:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Playfair Display;
+}
+
+.bg-signup {
+  background: #F5820E;
+  border-radius: 8px;
+}
+
+.site-logo {
+  font-family: sans-serif;
+}
+
+.active {
+  border-bottom: 3px solid black;
+}
+
+.bg-hire {
+  background-color: #F5820E;
+  padding: 0.8rem 4rem;
+}
+
+.bg-color {
+  background-color: #FFEDDC;
+}
+
+.border-warning {
+  color: #F5820E !important;
+}
+
+.border-sec {
+  border-top: 1px solid #CC6C0C;
+  width: 12%;
+}
+
+.bg-warning {
+  background-color: #FDE6CF !important;
+}
+
+#short-note p {
+  font-size: 1.25rem;
+}
+
+#short-note h2 {
+  font-size: 3rem;
+}
+
+.new-family {
+  font-family: 'Source Sans Pro', sans-serif !important;
+}
+
+#sec-five {
+  background-color: #3A3A3A;
+}
+
+@media screen and (max-width: 920px) {
+  .active {
+    border: none;
+  }
+  .smaller-text  {
+    font-size: 14px;
+  }
+
+  .bg-signup {
+    width: 70px;
+    text-align: center;
+  }
+}
+  
+
+@media (max-width: 426px) {
+  #sec-five .input-group input {
+    width: 100%;
+  }
+
+    #short-note p {
+      font-size: 1rem;
+    }
+
+    #short-note h2 {
+      font-size: 2.5rem;
+    }
+
+  .smaller-background {
+    background-color: #FDE6CF;
+    max-width: 94.5%;
+    margin: 0 auto;
+  }
+
+  .smaller-background h3, .smaller-background p {
+    text-align: center;
+  }
+}
+
+@media (max-width: 376px) {
+  .xs-screen1 {
+    width: 50%;
+  }
+  .xs-screen2 {
+      width: 100%;
+      margin: 0 auto;
+    }
+  .footer-links {
+    font-size: 12px;
+  }
+  .smaller-background {
+    max-width: 93.5%;
+  }
+}
+

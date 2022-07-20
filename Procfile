@@ -1,0 +1,1 @@
+web.gunicorn kodecamp_hire.wsgi:application --log.file -

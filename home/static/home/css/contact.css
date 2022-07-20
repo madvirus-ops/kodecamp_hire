@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Raleway:wght@100&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Playfair Display;
+}
+b
+.site-logo {
+  font-family: sans-serif;
+}
+
+.bg-signup {
+  background: #F5820E;
+  border-radius: 8px;
+}
+
+/* HEADER */
+
+.mobile-slide {
+  display: none;
+}
+
+.site-logo,
+.family-hire {
+  font-family: sans-serif;
+}
+
+.bg-color {
+  background-color: #FFEDDC;
+}
+.active {
+  border-bottom: 3px solid black;
+}
+
+textarea {
+  resize: none;
+  /* overflow: auto; */
+}
+
+/* MAIN SECTION */
+.card{ 
+min-height: 350px;
+ width: 90%;
+}
+.card-body img{
+  width: 45px;
+  height: 40px;
+  margin-right: 30px;
+}
+.card-body p{
+  font-size: 21px;
+}
+.row-card{
+  background-color: #F5820E !important;
+   color: white;
+  border-radius: 30px !important ;
+
+}
+.icony{
+margin-bottom: 30px;
+margin-right: 30px;
+}
+.orange{
+  background-color: #F5820E;
+}
+.h {
+  height: 2.5rem;
+  border: 1px solid #311a03;
+  background: #ece0e0;
+}
+.form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  border: 3px solid #f5820e !important;
+  
+  box-shadow: 0 0 0 0.25rem #fff !important;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #f5820e !important;
+  border-color: #f5820e !important;
+}
+.btn-check:focus + .btn-primary,
+.btn-primary:focus {
+  color: #fff;
+  box-shadow: 0 0 0 0.25rem #f5820e !important;
+}
+
+.btn-primary {
+  border: none!important;
+  background-color: #f5820e !important;
+}
+.form-check-input:focus {
+  border-color: #f5820e !important;
+  box-shadow: 0 0 0 0.25rem #ece0e0 !important;
+}
+.form-check-input:checked {
+  background-color: #f5820e !important;
+  border-color: #f5820e !important;
+  color: #f5820e !important;
+}
+/* input[type = 'file']{
+  position: absolute;
+  top: 20px;
+} */
+#choose_file{
+  width:100%;
+  background:white;
+  border:none;
+  outline:none;
+  border: 1px solid black;
+  margin-top: 5px;
+  margin-bottom: 60px;
+  height: 40px;
+  padding: 10px 40px;
+  
+ 
+  
+  
+}
+::-webkit-file-upload-button{
+  border:none;
+  background-color: #F5820E;
+  border-radius:5px;
+  height:40px;
+  color:white;
+  width:100px;
+  box-shadow: 2px 0px 0px grey;
+  position: absolute;
+  top: 1005px;
+  right: 109px;
+  
+}
+
+footer .site-logo {
+  font-family: sans-serif;
+}
+
+footer .bg-hire {
+  background-color: #F5820E;
+  padding: 0.8rem 4rem;
+}
+
+.bg-color {
+  background-color: #FFEDDC;
+}
+
+.unstyled {
+  list-style: none;
+}
+
+.new-family {
+  font-family: 'Source Sans Pro', sans-serif !important;
+}
+
+#sec-five {
+  background-color: #3A3A3A;
+}
+#sec-six{
+  background-color: #626262;
+}
+
+
+
+
+/* MEDIA QUERIES */
+@media all and (max-width:1024px){
+  ::-webkit-file-upload-button{
+    top: 1010px;
+   right: 40px;
+   
+ } 
+}
+@media all and (max-width:912px){
+  ::-webkit-file-upload-button{
+    top: 930px;
+   left:710px;
+   
+ } 
+ .card-body p{
+  font-size: 17px;
+}
+}
+@media all and (max-width:820px){
+  ::-webkit-file-upload-button{
+    top: 920px;
+   left:660px;
+   
+ } 
+}
+@media all and (max-width: 769px) {
+.form-part{
+  padding-top: 50px;
+}
+  .nav-link.underline:after{
+    display: none;
+  }
+  
+  .card-holder {
+    width: 100%;
+}
+.card-holder2{
+  display: none;
+}
+.active {
+  border: none;
+}
+
+.nav-link:hover p {
+  border-bottom: none;
+}
+::-webkit-file-upload-button{
+   top: 970px;
+  left: 640px;
+  
+}
+.bg-signup {
+  width: 70px;
+  text-align: center;
+ }
+
+
+
+}
+
+@media all and (max-width: 560px) {
+  .card-holder {
+    width: 100%;
+}
+.card-holder2{
+  display: none;
+}
+.card{
+  margin-left: 20px;
+}
+.form form input{
+  width: 65%;
+}
+.form form .btn{
+  background-color: #F5820E;
+  width: 14%;
+}
+#sec-five .input-group input {
+  width: 100%;
+}
+::-webkit-file-upload-button{
+  top: 1370px;
+ left: 420px;
+ 
+}
+}
+
+@media (max-width: 426px) {
+  .icony{
+    margin-bottom: 10px;
+    margin-right: 10px;
+    }
+    
+    
+  #sec-five .input-group input {
+    width: 100%;
+  }
+  ::-webkit-file-upload-button{
+    top: 1370px;
+   left: 290px;
+   
+ }
+}
+
+@media only screen and (max-width:376px){
+  .form form input{
+    width: 65%;
+      }
+  .form form .btn{
+    width: 18%;
+      }
+  
+    .footer-links {
+      font-size: 12px;
+    }
+    ::-webkit-file-upload-button{
+
+     left: 250px;
+     
+   }     
+}
+
+@media (max-width: 320px) {
+  body{
+    overflow-x: hidden !important;
+  }
+  ::-webkit-file-upload-button{
+    top: 1360px;
+   left: 150px;
+ }
+ 
+ #choose_file{
+  width:250px;   
+}
+
+.card-body h3{
+  font-size: 17px;
+}
+.card-body img{
+  width: 25px;
+  height: 20px;
+  margin-right: 10px;
+}
+.card-body p{
+  font-size: 16px;
+}  
+  
+}
+
+
+
+
+
+
+

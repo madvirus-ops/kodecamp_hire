@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'accounts\./css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'accounts\./css/verify.css' %}">
+  <link rel="icon" href="favicon.ico">
+  <title>Verify | CRYSTALEVENT</title>
+</head>
+<body>
+  <section class="mb-2 position-relative">
+    <nav class="navbar tab  navbar-expand-lg navbar-light position-absolute ms-2 mt-3" style="z-index: 1;">
+      <button type="button" class="btn back ms-2"><a href="#" style="color: #fff;">Back</a></button>
+        <a href="{% url 'home:index' %}" class="navbar-brand marginStyle">
+            <img
+            src="{% static 'accounts\./img/landing-page img/site-logo.png' %}"
+            width="20"
+            height="20"
+            class="img-fluid"
+            alt="logo"
+            />
+            <span class="site-logo" style="color: #522B05;">CRYSTALEVENT</span>
+        </a>
+    </nav>
+      <div class="d-flex form-div justify-content-between" style="gap: 1px;">
+          <div class="image position-relative">
+              <div class="wineImg"></div>
+              <div class="position-absolute top-50 form-texts">
+                  <h3 class="text-white mt-3 text-center fs-1">Register to be among  our team</h3>
+              </div>
+          </div>
+          <div class="form-body">
+            
+            <h3 class="text-center pt-5 mb-5 fw-bold">Verify your details</h3>
+
+            <form method="post" class="">
+                {% csrf_token %}
+                <div class="my-5">
+                  <h5 class="fw-bold">Your Name</h5>
+                  <p class="fs-5">{{ verified.name }}</p>
+                </div>
+
+                <div class="my-5">
+                  <h5 class="fw-bold">Email</h5>
+                  <p class="fs-5">{{ verified.email }}</p>
+                </div>
+
+                <div class="my-5">
+                  <h5 class="fw-bold">Phone Number</h5>
+                  <p class="fs-5">{{ verified.phone }}</p>
+                </div>
+
+                <div class="my-5">
+                  <h5 class="fw-bold">Select categories</h5>
+                  <p class="fs-5">{{ verified.categories }}</p>
+                </div>
+
+                <div class="my-5">
+                  <h5 class="fw-bold">Address</h5>
+                  <p class="fs-5">{{ verified.address }}</p>
+                </div>
+
+                <div class="my-5">
+                  <h5 class="fw-bold">State of residence</h5>
+                  <p class="fs-5">{{ verified.state }}</p>
+                </div>
+
+                <div class="my-5">
+                  <h5 class="fw-bold">LGA</h5>
+                  <p class="fs-5">{{ verified.lga }}</p>
+                </div>
+
+                <div>
+                  <h5 for="experience" class="fw-bold">Experience</h5>
+                  <p class="fs-5"> {{ verified.experience }}</p>
+                </div>
+                <input type="hidden" name ="ID" value="{{verified.id}}" required></td></tr>
+
+                <div class="d-grid gap-2 bg-hire text-white rounded" style="margin-top: 50px;">
+                  <a href=booking.html></a><button class="btn text-white" type="button"> Click to book an appointment</button></a>
+              </div>
+            </form>
+          </div>
+      </div>
+  </section>
+</body>
+</html>

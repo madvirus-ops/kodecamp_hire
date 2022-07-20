@@ -1,0 +1,301 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Crystal Events</title>
+  <link rel="stylesheet" href="{% static 'home\css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'home\css/about.css' %}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="icon" href="{% static 'home\favicon.ico' %}">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light py-lg-3 mt-3" style="border: 2px solid #F5820E;">
+      <div class="container">
+        <a href="{% url 'home:index' %}" class="navbar-brand">
+          <img src="{% static 'home\img/landing-page img/site-logo.png' %}" width="20" height="20" class="img-fluid" alt="logo" />
+          <span class="site-logo">CRYSTALEVENT</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto ">
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link fw-bold bg-signup" href="{% url 'accounts:signout' %}">Sign out</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link fw-bold" aria-current="page" href="{% url 'accounts:login' %}">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold bg-signup" href="{% url 'accounts:sign-up' %}">Sign up</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-color">
+      <div class="container">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="{% url 'home:index' %}">
+                <p class="fw-bold me-5 actived">Home</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:service' %}">
+                <p class="fw-bold me-5 ">Services</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:work' %}">
+                <p class="fw-bold me-5">Work</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:faq' %}">
+                <p class="fw-bold me-5">FAQ</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:contact' %}">
+                <p class="fw-bold me-5">Contact Us</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+{% block body %}
+
+  <section class="position-relative">
+    <div id="sec-one">
+
+    </div>
+    <div id="sec-one__container" class=" ">
+      <div class="text-center text-light py-">
+        <h1 class=" fw-bold text-center title">
+          About Us
+        </h1>
+        <p class="fs-3 sec-title new-family">
+          Create good memories, hire the best hands for <br> a memorable event.
+        </p>
+
+        <!-- <div class=" align-items-center justify-content-center flex-wrap-reverse gap-3 btn-wrapper">
+
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <p class="my-5 new-family"> <span class="text-warning">Crystal Events</span> was established in July 2022 to cater
+      to the needs of clients who wish to make their events well-organised and successful. Crystal Events is committed
+      to the highest standards and engages only reputable providers of proven integrity and excellent track records in
+      their respective fields of endeavour. We maintain excellent working relationship with our providersand we are able
+      to obtain the best value for money.</p>
+  </div>
+
+  <div class="container">
+    <div class="row text-dark">
+      <div class="col-lg-6 col-md-6 col-12 promise">
+        <h3 class="text-center fw-bold mb-3">Our Promise</h3>
+        <p class="new-family">We are positioned to cover a wide spectrum of events.</p>
+        <p class="new-family">We insist and do not ccompromise on standards.</p>
+        <p class="new-family">We believe Event Planning and marketing is a delicate art and a challenging task, whether
+          for a few or a crowd.</p>
+        <p class="new-family">Every little detail is important and we promise to give the best of experience for each of
+          your event.</p>
+      </div>
+      <div class="col-lg-6 col-md-6 col-12 cores">
+        <h3 class="text-center fw-bold mb-3">Core Values</h3>
+        <p class="new-family"><span class="fw-bold">Integrity:</span> We maintain the highest ethical standards. </p>
+        <p class="new-family"><span class="fw-bold">Excellence:</span> We always thrive to be best in everything we do.
+        </p>
+        <p class="new-family"><span class="fw-bold">Team-work:</span> We work together as a team to ensure productivity,
+          efficiency and to achieve optimum output within a short time.</p>
+        <p class="new-family"><span class="fw-bold">Professionalism:</span> We focus on the competence or skill that’s
+          expected of a professional.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- In progress -->
+  <div class="container py-5">
+    <h3 class="text-center fw-bold mb-3">Vision and Mission</h3>
+    <div class="row text-dark">
+      <div class="col-lg-8 col-md-8 col-12 f-screen">
+        <h2 class="new-family">Vision</h2>
+        <p class="new-family">To become a significant and leading player in the Organized Events Planning industry in
+          Nigeria.</p>
+      </div>
+      <div class="col-lg-4 col-md-4 col-12">
+        <h2 class="new-family">Mission</h2>
+        <p class="new-family">To organize and consistently deliver excellent professional services with creativity and
+          passion.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Team -->
+  <section id="team" class="pb-5">
+    <div class="container">
+      <h3 class="text-center mb-5 fw-bold">Meet the Team</h3>
+      <div class="row pb-5">
+        <div class="col-lg-6 col-md-6 col-4">
+          <img src="{% static 'home\./img/about-img/julian.png' %}" alt="julian" class="img-fluid mt-lg-0 mt-md-0 mt-5">
+        </div>
+        <div class="col-lg-6 col-md-6 col-8 mt-lg-5 mt-md-5 mt-0">
+          <h4 style="color: #F5820E;" class="mb-3 new-family">Juliana Ade</h4>
+          <p class="mb-3 new-family">Company Manager</p>
+          <div class="icons mb-4">
+            <a href="www.twitter.com" class="me-2"><img src="{% static 'home\./img/about-img/twitter.png' %}" alt="twitter"
+                class="img-fluid" width="32" height="32"></a>
+            <a href="www.pintrest.com" class="me-2"><img src="{% static 'home\./img/about-img/pintrest.png' %}" alt="twitter"
+                class="img-fluid" width="32" height="32"></a>
+            <a href="www.linkedin.com" class="text-decoration-none"><img src="{% static 'home\./img/about-img/linkedin.png' %}"
+                alt="twitter" class="img-fluid" width="32" height="32"></a>
+          </div>
+          <p class="new-family">Co-founder and Creative Director with 10 years experience in the Event Planning
+            Industry. Inspired and motivated on a daily basis make event successful.</p>
+        </div>
+      </div>
+      <div class="row pb-5">
+        <div class="col-lg-6 col-md-6 col-4">
+          <img src="{% static 'home\./img/about-img/ahmed.png' %}" alt="julian"
+            class="img-fluid ms-lg-5 ms-md-5 ms-0 ps-lg-5 mt-lg-0 mt-md-0 mt-5">
+        </div>
+        <div class="col-lg-6 col-md-6 col-8 mt-lg-5 mt-md-5 mt-0">
+          <h4 style="color: #F5820E;" class="mb-3 new-family">Ahmed Ali</h4>
+          <p class="mb-3 new-family">Accounts and Finance</p>
+          <div class="icons mb-4">
+            <a href="www.twitter.com" class="me-2"><img src="{% static 'home\./img/about-img/twitter.png' %}" alt="twitter"
+                class="img-fluid" width="32" height="32"></a>
+            <a href="www.pintrest.com" class="me-2"><img src="{% static 'home\./img/about-img/pintrest.png' %}" alt="twitter"
+                class="img-fluid" width="32" height="32"></a>
+            <a href="www.linkedin.com" class="text-decoration-none"><img src="{% static 'home\./img/about-img/linkedin.png' %}"
+                alt="twitter" class="img-fluid" width="32" height="32"></a>
+          </div>
+          <p class="new-family">With over 35 years Finance & Treasury Management experience. Dedicated to manage clients
+            payments and finances.</p>
+        </div>
+      </div>
+      <div class="row pb-5">
+        <div class="col-lg-6 col-md-6 col-4">
+          <img src="{% static 'home\./img/about-img/brit.png' %}" alt="brit"
+            class="img-fluid ms-lg-5 ms-md-5 ms-0 ps-lg-5 mt-lg-0 mt-md-0 mt-5">
+        </div>
+        <div class="col-lg-6 col-md-6 col-8 mt-lg-5 mt-md-5 mt-0">
+          <h4 style="color: #F5820E;" class="mb-3 new-family">Brit Woods</h4>
+          <p class="mb-3 new-family">Event Expert</p>
+          <div class="icons mb-4">
+            <a href="www.twitter.com" class="me-2"><img src="{% static 'home\./img/about-img/twitter.png' %}" alt="twitter"
+                class="img-fluid" width="32" height="32"></a>
+            <a href="www.pintrest.com" class="me-2"><img src="{% static 'home\./img/about-img/pintrest.png' %}" alt="twitter"
+                class="img-fluid" width="32" height="32"></a>
+            <a href="www.linkedin.com" class="text-decoration-none"><img src="{% static 'home\./img/about-img/linkedin.png' %}"
+                alt="twitter" class="img-fluid" width="32" height="32"></a>
+          </div>
+          <p class="new-family">Loves working up close and personal with clients and vendors, takinfg their stories,
+            capturing their moments that often goes unnoticed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock body %}
+<footer id="sec-five" class="pt-5">
+  <div class="container">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 mx-auto">
+          <form method="post">
+            {% csrf_token %}
+            <div class="input-group my-3 d-flex flex-wrap gap-3 align-items-center justify-content-center">
+              <input type="email" name="email" id="email" class="form-control py-3 d-inline-flex new-family"
+                style="background-color: #3A3A3A; color: #ffffff;" placeholder="Email Address"
+                aria-label="Email Address" aria-describedby="button-addon2">
+              <button class="btn bg-hire text-white btn-lg new-family" type="submit"
+                id="button-addon2">SUBSCRIBE</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <section class="">
+      <div class="container text-white mt-3 footer-links">
+        <div class="row mt-3 text-start">
+          <div class="col-lg-3 col-md-6 col-6 mb-3 new-family">
+            <p class="fw-bold mb-3 new-family">COMPANY</p>
+            <a href="account.html" class="text-secondary text-decoration-none mb-4 d-block new-family">My Account</a>
+            <a href="{% url 'home:about' %}" class="text-secondary text-decoration-none mb-4 d-block new-family">About Us</a>
+            <a href="{% url 'home:faq' %}" class="text-secondary text-decoration-none mb-4 d-block new-family">Faqs</a>
+            <a href="{% url 'home:contact' %}" class="text-secondary text-decoration-none mb-4 d-block new-family ">Contact Us</a>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-6 mb-3 new-family">
+            <p class="fw-bold mb-3 new-family">CUSTOMER SERVICE</p>
+            <a href="{% url 'home:tc' %}" class="text-secondary text-decoration-none mb-4 d-block new-family">Terms &
+              Conditions</a>
+            <a href="{% url 'home:refunds' %}" class="text-secondary text-decoration-none mb-4 d-block new-family">Returns &
+              Refunds</a>
+            <a href="help-support.html" class="text-secondary text-decoration-none mb-4 d-block new-family">Help &
+              Supports</a>
+            <a href="{% url 'home:privacy' %}" class="text-secondary text-decoration-none mb-4 d-block new-family">Privacy</a>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-6 mb-3 new-family">
+            <p class="fw-bold mb-3 new-family">SOCIAL MEIDA</p>
+            <a href="https://twitter.com/"
+              class="text-secondary text-decoration-none mb-4 d-block new-family">Twitter</a>
+            <a href="https://www.linkedin.com/"
+              class="text-secondary text-decoration-none mb-4 d-block new-family">LinkedIn</a>
+            <a href="https://instagram.com/"
+              class="text-secondary text-decoration-none mb-4 d-block new-family">Instagram</a>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-6 mb-3">
+            <p class="fw-bold mb-3 new-family">ARCHIVE</p>
+            <a href="pricelist.html" class="text-secondary text-decoration-none mb-4 d-block new-family">Price
+              List</a>
+            <a href="our-vendor.html" class="text-secondary text-decoration-none mb-4 d-block new-family">Our
+              Vendors</a>
+            <a href="event-category.html" class="text-secondary text-decoration-none mb-4 d-block new-family">Event
+              Category</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+</footer>
+
+  <section id="sec-six" style="background-color: #626262;">
+    <div class="text-center text-light p-3">© Crystal events 2022 all rights reserved.</div>
+  </section>
+
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1500,
+      once: true,
+    });
+  </script>
+</body>
+
+</html>
