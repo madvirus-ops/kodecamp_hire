@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Newsletter, Contact
+from .models import Event, Newsletter, Contact
 from django.contrib import messages
 # Create your views here.
 def home(request):
@@ -30,6 +30,27 @@ def contact(request):
         return redirect("home:contactsuccess")
 
     return render(request, "home/contact.html")
+
+
+def event_booking(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        phone = request.POST.get("phone")
+        color = request.POST.get("color")
+        location = request.POST.get("location")
+        date = request.POST.get("date")
+        time = request.POST.get("time")
+        budget = request.POST.get("budget")
+        eventtype = request.POST.get("eventtype")
+        details= request.POST.get("details")
+        event = Event(name = name, email = email, phone = phone, color=color, location=location, date=date,
+        time = time, budget=budget, event_type=eventtype, details = details)
+        event.save()
+
+        messages.success(request, "Successfully booked an Event, We'll get in touch with you")
+        return redirect("home:event")
+    return render(request, "home/event-booking.html")
 
 def contact_success(request):
     return render(request, "home/contact-success.html")

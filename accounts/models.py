@@ -13,7 +13,7 @@ class User_Number(models.Model):
         return self.user.first_name + ' ' + 'phone number'
 
 class Vendor(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE, default=1)
     name = models.CharField(max_length=100)
     email = models.EmailField()
     phonecode = models.CharField(max_length=5)

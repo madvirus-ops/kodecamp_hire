@@ -18,37 +18,26 @@
   <title>Contact | CRYSTALEVENT</title>
 </head>
 <body>
-
-  <!-- HEADER -->
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light py-lg-3 mt-3" style="border: 2px solid #F5820E;">
-        <div class="container">
-          <a href="{% url 'home:index' %}" class="navbar-brand">
-            <img src="{% static 'home\img/landing-page img/site-logo.png' %}" width="20" height="20" class="img-fluid" alt="logo" />
-            <span class="site-logo">CRYSTALEVENT</span>
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto ">
-              {% if request.user.is_authenticated %}
-              <li class="nav-item">
-                <a class="nav-link fw-bold bg-signup" href="{% url 'accounts:signout' %}">Sign out</a>
-              </li>
-              {% else %}
-              <li class="nav-item">
-                <a class="nav-link fw-bold" aria-current="page" href="{% url 'accounts:login' %}">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link fw-bold bg-signup" href="{% url 'accounts:sign-up' %}">Sign up</a>
-              </li>
-              {% endif %}
-            </ul>
-          </div>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light py-lg-3 mt-3" style="border: 2px solid #F5820E;">
+      <div class="container">
+        <a href="{% url 'home:index' %}" class="navbar-brand">
+          <img src="{% static 'home\img/landing-page img/site-logo.png' %}" width="20" height="20" class="img-fluid" alt="logo" />
+          <span class="site-logo">CRYSTALEVENT</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto ">
+            <li class="nav-item">
+              <a class="nav-link fw-bold bg-signup" href="{% url 'home:event' %}">Book An Event</a>
+            </li>
+          </ul>
         </div>
-      </nav>
+      </div>
+    </nav>
       <nav class="navbar navbar-expand-lg navbar-light bg-color">
         <div class="container">
           <div class="collapse navbar-collapse" id="navbarSupportedContent">

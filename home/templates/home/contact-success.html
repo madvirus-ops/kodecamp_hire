@@ -17,13 +17,12 @@
 
   <title>Contact | CRYSTALEVENT</title>
 </head>
-<body>
 
-  <!-- HEADER -->
+<body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light py-lg-3 mt-3" style="border: 2px solid #F5820E;">
       <div class="container">
-        <a href="index.html" class="navbar-brand">
+        <a href="{% url 'home:index' %}" class="navbar-brand">
           <img src="{% static 'home\img/landing-page img/site-logo.png' %}" width="20" height="20" class="img-fluid" alt="logo" />
           <span class="site-logo">CRYSTALEVENT</span>
         </a>
@@ -32,12 +31,9 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto">
+          <ul class="navbar-nav ms-auto ">
             <li class="nav-item">
-              <a class="nav-link fw-bold" aria-current="page" href="login.html">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fw-bold bg-signup" href="sign-up.html">Sign up</a>
+              <a class="nav-link fw-bold bg-signup" href="{% url 'home:event' %}">Book An Event</a>
             </li>
           </ul>
         </div>
@@ -49,27 +45,27 @@
           <ul class="navbar-nav mx-auto">
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="{% url 'home:index' %}">
-                <p class="fw-bold me-5">Home</p>
+                <p class="fw-bold me-5 actived">Home</p>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="service.html">
-                <p class="fw-bold me-5">Services</p>
+              <a class="nav-link" href="{% url 'home:service' %}">
+                <p class="fw-bold me-5 ">Services</p>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="work.html">
+              <a class="nav-link" href="{% url 'home:work' %}">
                 <p class="fw-bold me-5">Work</p>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="faq.html">
+              <a class="nav-link" href="{% url 'home:faq' %}">
                 <p class="fw-bold me-5">FAQ</p>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'home:contact' %}">
-                <p class="fw-bold me-5 active">Contact Us</p>
+                <p class="fw-bold me-5">Contact Us</p>
               </a>
             </li>
           </ul>

@@ -36,7 +36,7 @@
             
             <h3 class="text-center pt-5 mb-5 fw-bold">Verify your details</h3>
 
-            <form method="post" class="">
+              <form method="post" class="">
                 {% csrf_token %}
                 <div class="my-5">
                   <h5 class="fw-bold">Your Name</h5>
@@ -65,7 +65,7 @@
 
                 <div class="my-5">
                   <h5 class="fw-bold">State of residence</h5>
-                  <p class="fs-5">{{ verified.state }}</p>
+                  <p class="fs-5">{{ verified.statec }}</p>
                 </div>
 
                 <div class="my-5">
@@ -80,9 +80,15 @@
                 <input type="hidden" name ="ID" value="{{verified.id}}" required></td></tr>
 
                 <div class="d-grid gap-2 bg-hire text-white rounded" style="margin-top: 50px;">
-                  <a href=booking.html></a><button class="btn text-white" type="button"> Click to book an appointment</button></a>
-              </div>
-            </form>
+                  <a href="{% url 'accounts:booking' %}"><button class="btn text-white" type="button"> Click to book an appointment</button></a>
+                </div>
+                <div class="d-grid gap-2 bg-hire text-white rounded">
+                    
+                </div>
+                <div class="d-grid gap-2 bg-hire text-white rounded">
+                
+                </div>
+              </form>
           </div>
       </div>
   </section>

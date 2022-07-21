@@ -1,4 +1,5 @@
 
+import email
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from accounts.models import User_Number, Vendor
@@ -93,7 +94,7 @@ def signin(request):
 
 def vendor(request):
     if request.method == "POST":
-        user=request.user
+        #user=request.POST.get("user")
         vendor_name = request.POST.get("name")
         vendor_email = request.POST.get("email")
         vendor_phonecode = request.POST.get("phonecode")
@@ -103,18 +104,20 @@ def vendor(request):
         vendor_state = request.POST.get("state")
         vendor_lga = request.POST.get("lga")
         vendor_experience = request.POST.get("experience")
-        new_vendor = Vendor(user=user, name=vendor_name, email=vendor_email, phonecode=vendor_phonecode, phone=vendor_phone, 
-            categories=vendor_category, address=vendor_address, statec=vendor_state, lga=vendor_lga, experience=vendor_experience)
-        new_vendor.save()
+        if Vendor.objects.filter(email=vendor_email).exists():
+            messages.error(request, "Already Had An Appointment With Us")
+            return redirect('accounts:vendor')
+        else :
+            new_vendor = Vendor( name=vendor_name, email=vendor_email, phonecode=vendor_phonecode, phone=vendor_phone, 
+                categories=vendor_category, address=vendor_address, statec=vendor_state, lga=vendor_lga, experience=vendor_experience)
+            new_vendor.save()      
+            verified = Vendor.objects.get(email= vendor_email)
+            context = {
+
+                "verified" : verified
+            }
+        return render(request, "accounts/verify.html", context)
         
-        verified = Vendor.objects.get( name = vendor_name)
-        context = {
-           "verified" : verified
-        }
-
-        return render(request, "accounts/verify.html", context)   
-        #return redirect('accounts:verify', context)
-
     return render(request, "accounts/vendor.html")
 
 

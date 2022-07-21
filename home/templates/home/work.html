@@ -26,22 +26,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto ">
-            {% if request.user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link fw-bold bg-signup" href="{% url 'accounts:signout' %}">Sign out</a>
+              <a class="nav-link fw-bold bg-signup" href="{% url 'home:event' %}">Book An Event</a>
             </li>
-            {% else %}
-            <li class="nav-item">
-              <a class="nav-link fw-bold" aria-current="page" href="{% url 'accounts:login' %}">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fw-bold bg-signup" href="{% url 'accounts:sign-up' %}">Sign up</a>
-            </li>
-            {% endif %}
           </ul>
         </div>
       </div>
     </nav>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-color">
       <div class="container">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -287,7 +279,7 @@
     <div class="text-center text-light p-3">© Crystal events 2022 all rights reserved.</div>
   </section>
 
-  <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'home\js/bootstrap.min.js' %}"></script>
 </body>
 
 </html>

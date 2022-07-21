@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'accounts\./css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts\./css/vendor.css' %}">
+    <link rel="icon" href="{% static 'accounts\favicon.ico' %}">
+    <title>Vendor | CRYSTALEVENT</title>
+</head>
+<body>
+    <section class="mb-2 position-relative">
+        <nav class="navbar tab  navbar-expand-lg navbar-light position-absolute ms-2 mt-2" style="z-index: 1;">
+            <button type="button" class="btn back ms-2"><a href="{% url 'home:index' %}" style="color: #fff;">Back</a></button>
+              <a href="{% url 'home:index' %}" class="navbar-brand marginStyle">
+                  <img
+                  src="{% static 'accounts\./img/landing-page img/site-logo.png' %}"
+                  width="20"
+                  height="20"
+                  class="img-fluid"
+                  alt="logo"
+                  />
+                  <span class="site-logo" style="color: #522B05;">CRYSTALEVENT</span>
+              </a>
+          </nav>
+        <div class="d-flex form-div justify-content-between" style="gap: 1px;">
+            <div class="image position-relative">
+                <div class="wineImg"></div>
+                <div class="position-absolute top-50 form-texts">
+                    <h3 class="text-white mt-3 text-center fs-1">Book Event</h3>
+                </div>
+            </div>
+            <div class="form-body">
+                
+                <h4 class="text-center pt-5 mb-5 fw-bold">Book Event</h4>
+
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                <strong> Message:</strong> {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                {% endfor %}
+
+                <form method="post" class="">
+                    {% csrf_token %}
+                    <div>
+                        <label class="mb-3 fs-5 fw-bold">Name</label>
+                        <input class="form-control m-auto" type="text" name="name" placeholder="Mohmed Ali" required/>
+                    </div>
+
+                    <div>
+                        <label class="mb-3 fs-5 fw-bold">Email</label>
+                        <input class="form-control m-auto" type="text" name="email" placeholder="Email" required/>
+                    </div>
+
+                    <div>
+                        <label class="mb-3 fs-5 fw-bold">Phone</label>
+                        <input class="form-control m-auto" type="number" name="phone" placeholder="phone number" required/>
+                    </div>
+            
+                    <div>
+                        <label class="mb-3 fs-5 fw-bold">Theme Color</label>
+                        <input class="form-control m-auto" type="text" name="color" placeholder="Event_Color" required/>
+                    </div>
+            
+                    <div>
+                        <label class="mb-3 fs-5 fw-bold">Event Location</label>
+                        <input class="form-control m-auto" type="text" name="location" placeholder="location" required/>
+                    </div>
+
+                    <div>
+                        <label class="mb-3 fs-5 fw-bold">Event Date</label>
+                        <input type="date" name="date"> <input type="text" name="time">
+                    </div>
+
+                    <div>
+                        <label class="mb-3 fs-5 fw-bold">Event Budget</label>
+                        <input class="form-control m-auto" type="text" name="budget" placeholder="budget" required/>
+                    </div>
+
+                    <div>
+                        <label class="mb-3 fs-5 fw-bold">Event Type/Category</label>
+                        <input class="form-control m-auto" type="text" name="eventtype" placeholder="Event-type" required/>
+                    </div>
+            
+                    <div>
+                        <label for="message" class="mb-3 fw-bold fs-5">Event Details </label> <br>
+                        <textarea name="details" rows="4" id="details" placeholder="More information about the event" class="form-control"></textarea>
+                    </div>
+
+                    <div class="d-grid gap-2 bg-hire text-white rounded">
+                        <button class="btn text-white" type="submit">Proceed</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

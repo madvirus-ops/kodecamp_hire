@@ -35,6 +35,14 @@
             <div class="form-body">
                 
                 <h4 class="text-center pt-5 mb-5 fw-bold">Kindly fill in your details</h4>
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                <strong> Message:</strong> {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                {% endfor %}
 
                 <form method="post" class="">
                     {% csrf_token %}
@@ -63,7 +71,7 @@
                     <div class="my-4">
                         <p class="fw-bold fs-5">Select Categories</p>
                         <select name="categories" id="categories" class="form-control">
-                            <option value="Photographers" disabled selected value>Photographers</option>
+                            <option value="Photographers">Photographers</option>
                             <option value="Event Manager">Event Manager</option>
                             <option value="Interior Designer">Interior Designer</option>
                             <option value="Catery">Catery</option>
@@ -101,10 +109,16 @@
                         <label for="experience" class="mb-3 fw-bold fs-5">Experience</label> <br>
                         <textarea name="experience" rows="4" id="experience" placeholder="kindly tell us a brief experience of yourself" class="form-control"></textarea>
                     </div>
-
                     <div class="d-grid gap-2 bg-hire text-white rounded">
                         <button class="btn text-white" type="submit">Proceed</button>
                     </div>
+                    <div class="d-grid gap-2 bg-hire text-white rounded">
+                    
+                    </div>
+                    <div class="d-grid gap-2 bg-hire text-white rounded">
+                    
+                    </div>
+
 
                 </form>
             </div>

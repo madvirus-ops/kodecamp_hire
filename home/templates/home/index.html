@@ -30,18 +30,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto ">
-            {% if request.user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link fw-bold bg-signup" href="{% url 'accounts:signout' %}">Sign out</a>
+              <a class="nav-link fw-bold bg-signup" href="{% url 'home:event' %}">Book An Event</a>
             </li>
-            {% else %}
-            <li class="nav-item">
-              <a class="nav-link fw-bold" aria-current="page" href="{% url 'accounts:login' %}">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fw-bold bg-signup" href="{% url 'accounts:sign-up' %}">Sign up</a>
-            </li>
-            {% endif %}
           </ul>
         </div>
       </div>
@@ -115,9 +106,9 @@
           Create good memories, hire the best hands for a memorable event.
         </p>
 
-        <a href="{% url 'accounts:sign-up' %}">
-          <button class="btn text-white btn-lg mb-5 mb-3 mt-2  bg-hire" type="button" id="button-addon2">Get
-            Started</button>
+        <a href="{% url 'home:event' %}">
+          <button class="btn text-white btn-lg mb-5 mb-3 mt-2  bg-hire" type="button" id="button-addon2">Book
+            An Event</button>
         </a>
 
         <div class=" align-items-center justify-content-center flex-wrap-reverse gap-5 btn-wrapper">
@@ -166,7 +157,7 @@
               find the right supplier, trusted to deliver brilliant service, on time and on budget.
             </p>
             <div class="d-flex cj w-100">
-              <a href="{% url 'accounts:sign-up' %}"><button class="btn bg-hire text-white btn-lg" type="button" id="button-addon2">Get
+              <a href="{% url 'home:event' %}"><button class="btn bg-hire text-white btn-lg" type="button" id="button-addon2">Get
                   Started</button></a>
             </div>
           </div>
@@ -247,7 +238,7 @@
             festival.
           </p>
           <div class="d-flex cj w-100">
-            <a href="{% url 'accounts:login' %}"><button class="btn bg-hire text-white btn-lg mb-5" type="button"
+            <a href="{% url 'home:event' %}"><button class="btn bg-hire text-white btn-lg mb-5" type="button"
                 id="button-addon2">Organize Event</button></a>
           </div>
         </div>
@@ -397,7 +388,7 @@
             Register
             <br> as a vendor.
           </p>
-          <a href="vendor.html">
+          <a href="{% url 'accounts:vendor' %}">
             <button class="btn btn-light py-3 my-3 btn-lg bg-hires new-family" type="button"
               id="button-addon2">Register</button>
           </a>
