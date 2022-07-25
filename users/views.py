@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 
 
 # Create your views here.
@@ -28,3 +29,24 @@ def signup(request):
 def signup_done(request):
     return render(request, 'users/success-sign-up.html')
 
+
+def signin(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username,password=password)
+        if User.objects.filter(username=username).exists():
+            messages.success(request,"User Matched:)")
+        else:
+            messages.error(request, "Email Address not Found")
+            return redirect('users:signin')
+        user = authenticate(username=username,password=password)    
+        if user is not None:
+            login(request, user)
+            return redirect('core:home')
+        else:
+            messages.error(request, "username or password incorrect")
+            return redirect('users:sign-up')
+        
+        
+    return render(request, "users/login.html")
