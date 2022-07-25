@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Raleway:wght@100&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Playfair Display;
+}
+
+.site-logo {
+  font-family: sans-serif;
+}
+
+.bg-color {
+  background-color: #FFEDDC;
+}
+
+.active {
+  border-bottom: 3px solid black;
+}
+
+@media screen and (max-width: 769px) {
+  .active {
+    border: none;
+  }
+}
+
+@media (max-width: 426px) {
+  #sec-five .input-group input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 376px) {
+  .footer-links {
+    font-size: 12px;
+  }
+
+}
