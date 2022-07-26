@@ -43,7 +43,18 @@
       </section>
       
       <section class="form   mt-5 ps-md-3 px-lg-5 mt-5">
-        <div class="container container-md">
+          <div class="container container-md">
+            {% if messages %} 
+              {%for message in messages%}
+                <div class="alert alert-{{message.tags}">
+                     <p class="text-center mt-2 font-source fw-bold"> <br>
+                    <a href="/auth/signup" style="text-decoration: none;">
+                    <span class="orange">{{message}}  </span></a></p>   
+                                 
+                </div>
+              {%endfor%}
+            {%endif%}
+
                   
             <h2 class="text-center mt-5 text-log font-playfair" > <span class="ms-2">Log </span> <span class="orange">In</span></h2>
             <form method="post">
@@ -53,27 +64,29 @@
                 <input type="text" class="form-control " placeholder="username" name="username"   id="exampleInputEmail1" aria-describedby="emailHelp">
 
               <div class="mt-4 ">
-                <label for="exampleInputPassword1" class="form-label fw-bolder fs-5 label-size font-playfair">Password</label>
-                <div class="input-container">
-                <input type="password" class="form-control input-field" placeholder="******** " name="password" id="exampleInputPassword1"> 
-                <i class="bi bi-eye-slash-fill" id="togglePassword" style="margin-left: -30px; margin-top: 11px;cursor: pointer;"></i>
-                </div>
-                </div>
+                  <label for="exampleInputPassword1" class="form-label fw-bolder fs-5 label-size font-playfair">Password</label>
+                  <div class="input-container">
+                    <input type="password" class="form-control input-field" placeholder="******** " name="password" id="exampleInputPassword1"> 
+                    <i class="bi bi-eye-slash-fill" id="togglePassword" style="margin-left: -30px; margin-top: 11px;cursor: pointer;"></i>
+                  </div>
+              </div>
                 <div class=" d-flex justify-content-end">
                   <p class="
-                  orange font-source  fw-bold"> <a href="reset-password.html" style="text-decoration: none;"> <span class="orange">Forgot Password?</span></p></a> 
-                  </div>
+                   orange font-source  fw-bold"> <a href="reset-password.html" style="text-decoration: none;"> <span class="orange">Forgot Password?</span></p></a> 
+                </div>
               <div class=" d-flex justify-content-center mt-4 mb-4">
-              <button type="submit" class="btn btn-primary w-75 border-0 font-source fw-bold">Login</button>
+                <button type="submit" class="btn btn-primary w-75 border-0 font-source fw-bold">Login</button>
               </div>
             </form>
-        <p class="text-center mt-2 font-source fw-bold">Don’t have an account? <a href="/auth/signup" style="text-decoration: none;"><span class="orange">Create Account</span></a></p>
-      </div>
+          <p class="text-center mt-2 font-source fw-bold">Don’t have an account? <a href="/auth/signup" style="text-decoration: none;"><span class="orange">Create Account</span></a></p>
+        </div>
       
       </section>
     </div>
     </section> 
     </div> 
-    <script src="js\script.js"></script> 
+    <script src="js\script.js">
+      window.alert("dndn")
+      </script> 
   </body>
 </html>

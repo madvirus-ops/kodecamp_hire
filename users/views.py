@@ -34,19 +34,23 @@ def signin(request):
     if request.method == "POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
-        user = authenticate(username=username,password=password)
+        #user = authenticate(username=username,password=password)
+       # if User.objects.filter(username=username).exists():
+        #    messages.success(request,"User Matched:)")
+        #else:
+         #   messages.error(request, "Email Address not Found")
+          #  return redirect('users:signin')
         if User.objects.filter(username=username).exists():
-            messages.success(request,"User Matched:)")
+            user = authenticate(username=username,password=password)    
+            if user is not None:
+                login(request, user)
+                return redirect('core:home')
+            else:
+                messages.error(request, "username or password incorrect")
+                return redirect('users:signin')
         else:
-            messages.error(request, "Email Address not Found")
+            messages.error(request,"user does not exist")
             return redirect('users:signin')
-        user = authenticate(username=username,password=password)    
-        if user is not None:
-            login(request, user)
-            return redirect('core:home')
-        else:
-            messages.error(request, "username or password incorrect")
-            return redirect('users:sign-up')
         
         
     return render(request, "users/login.html")
