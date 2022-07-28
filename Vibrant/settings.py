@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'users',
+    
 ]
 
 MIDDLEWARE = [
@@ -133,3 +134,6 @@ EMAIL_PORT =  '587'
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "email-name-here"
 EMAIL_HOST_PASSWORD = 'email_password-here'
+SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
+#SWEETIFY_SWEETALERT_THEME = 'bootstrap4'
+CSRF_COOKIE_NAME = "csrftoken"

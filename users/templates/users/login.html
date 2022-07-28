@@ -1,4 +1,5 @@
 {%load static%}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -43,45 +44,18 @@
       <section class="Image">
       </section>
       
-      <section class="form   mt-5 ps-md-3 px-lg-5 mt-5">
-      
-
-              {% if messages %} 
-                {%for message in messages%}
-                  <div class="alert alert-{{message.tags}">
-                      <p class="text-center mt-2 font-source fw-bold"> <br>
-                      <a href="/auth/signup" style="text-decoration: none;">
-                      <span class="orange">
-                            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11">
-                                Swal.fire(
-                                  {
-                                position: 'top-end',
-                                icon: 'success',
-                                title: '{{message}}',
-                                showConfirmButton: false,
-                                timer: 1000
-                                }
-                                )
-                            </script> 
-                           
-                      </span>
-                      </a></p>              
-                  </div>
-                {%endfor%}
-              {%endif%}
-
-            </div>      
+      <section class="form   mt-5 ps-md-3 px-lg-5 mt-5">    
             <h2 class="text-center mt-5 text-log font-playfair" > <span class="ms-2">Log </span> <span class="orange">In</span></h2>
-            <form method="post">
-              {%csrf_token%}
+            <!-- <form method="post">
+              {%csrf_token%} -->
               <div class="mb-5">
                 <label for="exampleInputEmail1" class="form-label fw-bolder fs-5 label-size font-playfair">Username</label>
-                <input type="text" class="form-control " placeholder="username" name="username"   id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" class="form-control " placeholder="username" name="username"   id="username" aria-describedby="emailHelp">
 
               <div class="mt-4 ">
                   <label for="exampleInputPassword1" class="form-label fw-bolder fs-5 label-size font-playfair">Password</label>
                   <div class="input-container">
-                    <input type="password" class="form-control input-field" placeholder="******** " name="password" id="exampleInputPassword1"> 
+                    <input type="password" class="form-control input-field" placeholder="******** " name="password" id="password"> 
                     <i class="bi bi-eye-slash-fill" id="togglePassword" style="margin-left: -30px; margin-top: 11px;cursor: pointer;"></i>
                   </div>
               </div>
@@ -90,9 +64,9 @@
                    orange font-source  fw-bold"> <a href="/auth/reset-password" style="text-decoration: none;"> <span class="orange">Forgot Password?</span></p></a> 
                 </div>
               <div class=" d-flex justify-content-center mt-4 mb-4">
-                <button type="submit" class="btn btn-primary w-75 border-0 font-source fw-bold">Login</button>
+                <button type="button" class="btn btn-primary w-75 border-0 font-source fw-bold" id="login" onclick="btnLogin()">Login</button>
               </div>
-            </form>
+            <!-- </form> -->
           <p class="text-center mt-2 font-source fw-bold">Don’t have an account? <a href="/auth/signup" style="text-decoration: none;"><span class="orange">Create Account</span></a></p>
         </div>
       
@@ -100,8 +74,9 @@
     </div>
     </section> 
     </div> 
-    <script src="js\script.js">
-      window.alert("dndn")
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{% static 'core\js\script.js'%}">
       </script> 
-  </body>
+
 </html>
