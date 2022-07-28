@@ -22,7 +22,7 @@ def signup(request):
             new_user = User.objects.create_user(email=email,password=password2,username=name)
             new_user.save()
             messages.success(request,f'Account Created For {name}')
-            return render(request, 'users/sign-up.html')
+            return redirect('users:signin')
     return render(request, 'users/sign-up.html')
 
 
@@ -54,3 +54,31 @@ def signin(request):
         
         
     return render(request, "users/login.html")
+
+def Password_Reset(request):
+    if request.method == "POST":
+        Email = request.POST.get("email")
+        if User.objects.filter(email=Email).exists():
+            messages.success(request, "email passed,Proceed")
+            return redirect("users:new-password")
+        else:
+            messages.error(request, message="Email doesn't  exist")
+            return redirect("users:reset-password")
+    
+    return render(request, "users/reset-password.html")
+
+def Another_Password(request):
+    if request.method == "POST":
+        Email = request.POST.get("email")
+        Password1 = request.POST.get("password1")
+        Password2 = request.POST.get("password2")
+        if User.objects.filter(email=Email).exists() and Password1==Password2:
+            user = User.objects.get(email=Email)
+            user.set_password(Password2)
+            user.save()
+            messages.success("password reset succeeded, Login to continue")
+            return redirect("users:login")
+        else:
+            messages.success(request,"passwords do not match")
+            return redirect("users:new-password")
+    return render(request, "users/new-password.html")
