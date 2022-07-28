@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
 from pathlib import Path
+import django_on_heroku
+import dj_database_url
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +28,11 @@ SECRET_KEY = 'django-insecure-g2+kocg-hwzbo$_x13359%%8j3j4cc27qsp1&@0e(#*(2%#g7k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    'https://await-login.herokuapp.com/'
+]
 
 
 # Application definition
@@ -122,6 +129,10 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+LOGIN_REDIRECT_URL ='home'
+LOGIN_URL = 'signin'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -137,3 +148,14 @@ EMAIL_HOST_PASSWORD = 'email_password-here'
 SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
 #SWEETIFY_SWEETALERT_THEME = 'bootstrap4'
 CSRF_COOKIE_NAME = "csrftoken"
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://django-blogg.tunnels.onboardbase.com',
+    'http://localhost:8000',
+    'http://127.0.0.1:8000',
+    'https://spotty-wolverine-68.tunnels.onboardbase.com',
+    'https://await-login.herokuapp.com/',
+
+]
+
+django_on_heroku.settings(locals())

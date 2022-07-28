@@ -8,7 +8,7 @@ const togglePassword = document.querySelector('#togglePassword');
     toast: true,
     position: 'top-end',
     showConfirmButton: false,
-    timer: 1500,
+    timer: 3000,
     timerProgressBar: true,
     didOpen: (toast) => {
       toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -38,19 +38,18 @@ form.addEventListener("submit",function(e){
     e.preventDefault();
 });
 
-async function  btnLogin(){
+async function  btnsignup(){
     document.getElementById("login").disabled=true;
-    var username = document.querySelector('#username').value;
-
-var password = document.querySelector('#password').value;
-if (username=="" || password=="") {
+    var password1 = document.getElementById("exampleInputPassword1").value;
+    var password2 = document.getElementById("exampleInputPassword2").value;
+if (password2 != password1) {
     Toast.fire({
         icon: 'error',
-        title: 'Please fill all the fields'
+        title: 'passwords do not match'
       })
 } else {
     const url ="/auth/auth"
-const param = {
+    const param = {
     "username": username,
     "password":password
 }
@@ -63,7 +62,7 @@ const param = {
           });
           setTimeout(() => {
             window.location.href = "/";
-          }, 1500);
+          }, 3000);
        
     }else{
         document.getElementById("login").disabled=false;

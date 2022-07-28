@@ -32,10 +32,10 @@ def signup(request):
 def signup_done(request):
     return render(request, 'users/success-sign-up.html')
 
-def auth(request):
-    res = json.loads(request.body);
-    username = res['username'];
-    password = res['password'];
+def Auth_User(request):
+    res = json.loads(request.body)
+    username = res['username']
+    password = res['password']
    # print(res);
     user = authenticate(username=username,password=password)
     if User.objects.filter(username=username).exists():
@@ -46,10 +46,11 @@ def auth(request):
         else:
             return JsonResponse({"status": "error"}) 
     else:
-         return JsonResponse({"status": "user no dey.."}) 
+         return JsonResponse({"status": "User not Found.."}) 
 
 def signin(request):        
     return render(request, "users/login.html")
+
 
 def Password_Reset(request):
     if request.method == "POST":

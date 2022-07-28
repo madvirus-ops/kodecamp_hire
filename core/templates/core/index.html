@@ -1,3 +1,4 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,11 +6,11 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css'%}" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="{%static 'core/css/style.css'%}" />
   <link rel="icon" href="favicon.ico">
   <title>CRYSTALEVENT</title>
 </head>
@@ -19,7 +20,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-4 border-warning">
       <div class="container">
         <a class="navbar-brand">
-          <img src="img/landing-page img/site-logo.png" width="20" height="20" class="img-fluid" alt="logo" />
+          <img src="{%simg/landing-page img/site-logo.png" width="20" height="20" class="img-fluid" alt="logo" />
           <span class="site-logo">CRYSTALEVENT</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
