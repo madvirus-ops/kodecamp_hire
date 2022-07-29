@@ -45,29 +45,29 @@
      
       <section class="form  container-mobile  mt-5 ps-md-3 px-lg-5" >
         <div class="container container-md">
-          {% if messages %} 
+          <!-- {% if messages %} 
 				  	{%for message in messages%}
               <div class="alert alert-{{message.tags}">
                   {{message}}
               </div>
 					  {%endfor%}
-				  {%endif%}
+				  {%endif%} -->
 
           <h2 class="text-center mt-5 text-log font-playfair">
             <span class="ms-2">Sign </span> <span class="orange">Up</span>
           </h2>
-          <form method="post" >
-            {%csrf_token%}
+          <!-- <form method="post" >
+            {%csrf_token%} -->
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label fw-bolder fs-5 label-size font-playfair"
                 >Unique Username</label
               >
               <input
-              name="name"
+              name="username"
                 type="text"
                 class="form-control"
                 placeholder="Mariam Alli"
-                id="exampleInputEmail1"
+                id="username"
                 aria-describedby="emailHelp"  required
               />
             </div>
@@ -80,7 +80,7 @@
                 type="email"
                 class="form-control "
                 placeholder="mariamevents247@gmail.com"
-                id="exampleInputEmail2"
+                id="email"
                 aria-describedby="emailHelp" required
               />
             </div>
@@ -90,13 +90,13 @@
               
               
               <div class="position-relative form-control h">
-                  <input
+                  <!-- <input
                       class=" form-control h-100 m-auto position-absolute top-0 start-0  border-0 border-end ps-lg-2"
-                      type="tel" placeholder="+234" name="phoneNumber" style="width: 30%;"  required />
+                      type="tel" placeholder="+234" name="phoneNumber" style="width: 30%;"  required /> -->
                   <input
                   name="phonenumber"
                       class="  form-control h-100 m-auto position-absolute top-0 end-0 rounded-end border-0 border-start width"
-                      type="tel" placeholder="80555647382" name="phoneNumber" style="width: 92%;"  required />
+                      type="tel" placeholder="80555647382" name="phonenumber" style="width: 92%;" id="phonenumber" required />
               </div>
           </div>
             <!-- </div> -->
@@ -114,7 +114,7 @@
                   type="password"
                   class="form-control"
                   placeholder="******** "
-                  id="exampleInputPasswordw2" required
+                  id="password1" required
                 />
                 <i
                   class="bi bi-eye-slash-fill"
@@ -136,7 +136,7 @@
                   type="password"
                   class="form-control "
                   placeholder="******** "
-                  id="exampleInputPassword1" required
+                  id="password2" required
                 />
                 <i
                   class="bi bi-eye-slash-fill "
@@ -150,7 +150,7 @@
               name="check"
                 type="checkbox"
                 class="form-check-input"
-                id="exampleCheck1"  required
+                id="check"  required
               />
               <label class="form-check-label ms-3  mt-2 label-size mt-sm-1 font-source fw-bold" for="exampleCheck1"
                 >I agree to the
@@ -158,11 +158,11 @@
               >
             </div>
             <div class="d-flex justify-content-center mt-4 mb-4">
-              <button type="submit" class="btn btn-primary w-75 border-0 font-source fw-bold">
+              <button type="button" onclick="btnSignup()" id="signup" class="btn btn-primary w-75 border-0 font-source fw-bold">
                 Create Account
               </button>
             </div>
-          </form>
+          <!-- </form> -->
           <p class="text-center mt-2 label-size font-source fw-bold" >
             Already have an account?
             <a href="/auth/signin" style="text-decoration: none"
@@ -174,6 +174,9 @@
       </section>
     </section>
   </section>
-  <script src="js\script.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   
+  <script src="{%static 'core\js\signupjs.js'%}"></script>
   </body>
 </html>

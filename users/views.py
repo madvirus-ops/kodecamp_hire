@@ -10,27 +10,49 @@ from django.http import JsonResponse
 # Create your views here.
 
 def signup(request):
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        password1 = request.POST.get('password1')
-        password2 = request.POST.get('password2')
-        phonenumber = request.POST.get('phonenumber')
-        check = request.POST.get('check')
-
-        if password1 != password2:
-            sweetify.error(request,'passwords do not match')
-            return render(request, 'users/sign-up.html')
-        else:
-            new_user = User.objects.create_user(email=email,password=password2,username=name)
-            new_user.save()
-            sweetify.success(request,f'Account Created For {name}')
-            return redirect('users:signin')
+    # if request.method == 'POST':
+        
     return render(request, 'users/sign-up.html')
 
 
+def authup(request):
+    res = json.loads(request.body)
+    username = res['username']
+    password1 = res['password1']
+    password2 = res['password2']
+    email = res['email']
+    check = res['check']
+    if password1 != password2:
+            # sweetify.error(request,'passwords do not match')
+            return JsonResponse({"status": "wrong"})
+    else:
+        if User.objects.filter(username=username).exists():
+            return JsonResponse({"status": "exists"})
+        else:
+            user = User.objects.create_user(username=username,password=password1,email=email)
+            user.save()
+            return JsonResponse({"status": "success"})
+
+
+    # name = request.POST.get('name')
+    #     email = request.POST.get('email')
+    #     password1 = request.POST.get('password1')
+    #     password2 = request.POST.get('password2')
+    #     phonenumber = request.POST.get('phonenumber')
+    #     check = request.POST.get('check')
+
+        
+    #     else:
+    #         new_user = User.objects.create_user(email=email,password=password2,username=name)
+    #         new_user.save()
+    #         sweetify.success(request,f'Account Created For {name}')
+    #         return redirect('users:signin')
+
 def signup_done(request):
     return render(request, 'users/success-sign-up.html')
+
+
+
 
 def Auth_User(request):
     res = json.loads(request.body)
