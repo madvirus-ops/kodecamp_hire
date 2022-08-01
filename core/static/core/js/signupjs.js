@@ -46,6 +46,7 @@ async function  btnSignup(){
     var password2 = document.querySelector('#password2').value;
     var check = document.querySelector('#check').value;
     if (password1=="" || password2=="" || username=="" || email=="" || check=="") {
+      document.getElementById("signup").disabled=false;
     Toast.fire({
         icon: 'error',
         title: 'All fields are required'
