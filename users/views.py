@@ -2,6 +2,7 @@ import json
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
+from . import models 
 from django.contrib.auth import authenticate, login
 import sweetify
 from django.http import JsonResponse 
@@ -103,7 +104,26 @@ def Another_Password(request):
     return render(request, "users/new-password.html")
 
 
-    def Vendoriew(request):
+def Vendoriew(request):
         return render(request, "users/vendor.html")
 
-    def VendorAuth(request):
+def VendorAuth(request):
+    res = json.loads(request.body)
+    name = res['name']
+    email = res['email']
+    categories = res['categories']
+    phonenumber = res['phonenumber']
+    lga = res['lga']
+    experience = res['experience']
+    residence = res['residence']
+    v_save = models.VendorModel(name=name,email=email,phonenumber=phonenumber,categories=categories,lga=lga,experience=experience,residence=residence)
+    v_save.save()
+    details = models.VendorModel.objects.get(name=name)
+    return JsonResponse({"status": "success"})
+
+
+
+def Vendorconfirm(request):
+    res = json.loads(request.body)
+    details = res['name']
+    return JsonResponse({details:details})

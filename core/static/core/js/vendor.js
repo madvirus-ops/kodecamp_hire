@@ -29,7 +29,7 @@ Toast.fire({
 })
 document.getElementById("vendor").disabled=false;
 }else {
-const url ="/auth/authup"
+const url ="/auth/vendor-auth"
 const param = {
     name: name,
     email: email,
@@ -43,28 +43,29 @@ const param = {
 const res=  await axios.post(url,param);
 try {
     if(res.data.status=="success"){
+        document.getElementById("vendor").disabled=true;
         Toast.fire({
             icon: 'success',
-            title: 'Form submitted successfully '
+            title: 'Form submitted successfully, please confirm in next page '
             });
             setTimeout(() => {
             window.location.href = "/auth/vendor/confirm";
             }, 1500);
         
     }
-else if(res.data.status=="wrong"){
-        document.getElementById("vendor").disabled=false;
-        Toast.fire({
-            icon: 'error',
-            title: 'Passwords do not match'
-            }) 
-}else if(res.data.status=="exists"){
-    document.getElementById("vendor").disabled=false;
-    Toast.fire({
-        icon: 'error',
-        title: 'Username already exists'
-        })
-        }
+// else if(res.data.status=="wrong"){
+//         document.getElementById("vendor").disabled=false;
+//         Toast.fire({
+//             icon: 'error',
+//             title: 'Passwords do not match'
+//             }) 
+// }else if(res.data.status=="exists"){
+//     document.getElementById("vendor").disabled=false;
+//     Toast.fire({
+//         icon: 'error',
+//         title: 'Username already exists'
+//         })
+//         }
 else{
     document.getElementById("vendor").disabled=false;
     Toast.fire({
