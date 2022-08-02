@@ -101,3 +101,9 @@ def Another_Password(request):
             messages.success(request,"passwords do not match")
             return redirect("users:new-password")
     return render(request, "users/new-password.html")
+
+
+    def Vendoriew(request):
+        return render(request, "users/vendor.html")
+
+    def VendorAuth(request):

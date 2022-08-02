@@ -91,6 +91,7 @@ async function  btnSignup(){
             icon: 'error',
             title: 'Something went wrong'
           })
+          // calert()
 
       }
    } catch (error) {
@@ -98,3 +99,21 @@ async function  btnSignup(){
    }
 }
 }
+// function calert(timer,title,icon,position){
+//   const Toast = Swal.mixin({
+//     toast: true,
+//     position: position,
+//     showConfirmButton: false,
+//     timer: timer,
+//     timerProgressBar: true,
+//     didOpen: (toast) => {
+//       toast.addEventListener('mouseenter', Swal.stopTimer)
+//       toast.addEventListener('mouseleave', Swal.resumeTimer)
+//     }
+//   })
+//   Toast.fire({
+//     icon: icon,
+//     title: title
+//   })
+
+// }
