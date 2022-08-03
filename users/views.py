@@ -116,10 +116,13 @@ def VendorAuth(request):
     lga = res['lga']
     experience = res['experience']
     residence = res['residence']
-    v_save = models.VendorModel(name=name,email=email,phonenumber=phonenumber,categories=categories,lga=lga,experience=experience,residence=residence)
-    v_save.save()
-    details = models.VendorModel.objects.get(name=name)
-    return JsonResponse({"status": "success"})
+    if models.VendorModel.objects.filter(name=name).exists():
+        return JsonResponse({"status":"exists"})
+    else:
+        v_save = models.VendorModel(name=name,email=email,phonenumber=phonenumber,categories=categories,lga=lga,experience=experience,residence=residence)
+        v_save.save()
+        # details = models.VendorModel.objects.get(name=name)
+        return JsonResponse({"status": "success"})
 
 
 

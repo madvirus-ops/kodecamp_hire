@@ -14,6 +14,7 @@ urlpatterns =[
     path('new-password',views.Another_Password,name='new-password'),
     path('vendor-auth',views.VendorAuth,name='vendor-auth'),
     path('vendor-confirm',views.Vendorconfirm,name='vendor-confirm'),
+    path('vendor',views.Vendoriew,name="vendor")
 
 ]
 
