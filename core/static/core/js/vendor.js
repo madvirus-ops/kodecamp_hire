@@ -14,14 +14,14 @@ didOpen: (toast) => {
 })
 
 async function  btnVendor(){
-document.getElementById("vendor").disabled=true;
-var name = document.querySelector('#name').value;
-var email = document.querySelector('#email').value;
-var phonenumber = document.querySelector('#phonenumber').value;
-var categories = document.querySelector('#categories').value;
-var residence = document.querySelector('#residence').value;
-var experience = document.querySelector('#experience').value;
-var lga = document.querySelector('#lga').value;
+    document.getElementById("vendor").disabled=true;
+    var name = document.querySelector('#name').value;
+    var email = document.querySelector('#email').value;
+    var phonenumber = document.querySelector('#phonenumber').value;
+    var categories = document.querySelector('#categories').value;
+    var residence = document.querySelector('#residence').value;
+    var experience = document.querySelector('#experience').value;
+    var lga = document.querySelector('#lga').value;
 if (name == "" || email == "" || phonenumber == "" || categories == "" || residence == "" || lga == "") {
 Toast.fire({
     icon: 'error',
@@ -49,7 +49,7 @@ try {
             title: 'Form submitted successfully, please confirm in next page '
             });
             setTimeout(() => {
-            window.location.href = "/auth/vendor/confirm";
+            window.location.href = "/auth/vendor/verify";
             }, 1500);
         
     }

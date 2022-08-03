@@ -1,8 +1,9 @@
 import json
+from multiprocessing import context
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
-from . import models 
+from users.models import VendorModel
 from django.contrib.auth import authenticate, login
 import sweetify
 from django.http import JsonResponse 
@@ -65,6 +66,7 @@ def Auth_User(request):
         user = authenticate(username=username,password=password)    
         if user is not None:
             login(request, user)
+            request.session['username'] = username
             return JsonResponse({"status": "success"})
         else:
             return JsonResponse({"status": "error"}) 
@@ -106,27 +108,35 @@ def Another_Password(request):
 
 def Vendoriew(request):
         return render(request, "users/vendor.html")
-
+# def checkauth():
+#     return ( request.session['username']!=="")?"":render(request, "users/vendor.html")
 def VendorAuth(request):
     res = json.loads(request.body)
-    name = res['name']
+    event_name = res['name']
     email = res['email']
     categories = res['categories']
     phonenumber = res['phonenumber']
     lga = res['lga']
     experience = res['experience']
     residence = res['residence']
-    if models.VendorModel.objects.filter(name=name).exists():
+    if VendorModel.objects.filter(name=event_name).exists():
         return JsonResponse({"status":"exists"})
     else:
-        v_save = models.VendorModel(name=name,email=email,phonenumber=phonenumber,categories=categories,lga=lga,experience=experience,residence=residence)
+        v_save = VendorModel(name=event_name,email=email,phonenumber=phonenumber,categories=categories,lga=lga,experience=experience,residence=residence,)
         v_save.save()
-        # details = models.VendorModel.objects.get(name=name)
+        # details = VendorModel.objects.get(name=name)
+        request.session['event_name'] = event_name
+        Vendorconfirm(event_name)
         return JsonResponse({"status": "success"})
 
 
 
 def Vendorconfirm(request):
-    res = json.loads(request.body)
-    details = res['name']
-    return JsonResponse({details:details})
+    if request.session.has_key('event_name'):
+        name = request.session['event_name']
+        vendor = VendorModel.objects.get(name=name)
+        context = {
+            vendor : vendor
+        }
+        return render(request, 'user/verify.html',context)
+    return render(request, 'user/verify.html',context)
