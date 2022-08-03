@@ -138,5 +138,5 @@ def Vendorconfirm(request):
         context = {
             vendor : vendor
         }
-        return render(request, 'user/verify.html',context)
-    return render(request, 'user/verify.html',context)
+        return render(request, 'users/verify.html',context)
+    return render(request, 'users/verify.html')
