@@ -135,7 +135,7 @@ MEDIA_URL = '/media/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 LOGIN_REDIRECT_URL ='home'
-LOGIN_URL = 'signin'
+LOGIN_URL = '/auth/signin'
 LOGOUT_URL = 'signout'
 
 # Default primary key field type

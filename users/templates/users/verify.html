@@ -27,9 +27,9 @@
     </nav>
       <div class="d-flex form-div justify-content-between" style="gap: 1px;">
           <div class="image position-relative">
-              <div class="wineImg"></div>
+              <div class="wineImg d-none  d-md-block d-sm-block"></div>
               <div class="position-absolute top-50">
-                  <h3 class="text-white mt-3 text-center fs-1">Register to be among  our team</h3>
+                  <h3 class="text-white mt-3 text-center fs-1 d-none  d-md-block d-sm-block">Register to be among  our team</h3>
               </div>
           </div>
           <div class="form-body">
@@ -45,7 +45,7 @@
               {%csrf_token%}
                 <div class="my-5">
                   <h5 class="fw-bold">Your Name</h5>
-                  <p class="fs-5">{{vendor.event_name}}</p>
+                  <p class="fs-5">{{vendor.name}}</p>
                 </div>
 
                 <div class="my-5">
@@ -55,7 +55,7 @@
 
                 <div class="my-5">
                   <h5 class="fw-bold">Phone Number</h5>
-                  <p class="fs-5"{{vendor.phonenumber}}</p>
+                  <p class="fs-5">{{vendor.phonenumber}}</p>
                 </div>
 
                 <div class="my-5">
@@ -79,11 +79,14 @@
                 </div>
 
                 <div class="d-grid gap-2 bg-hire text-white rounded" style="margin-top: 50px;">
-                  <button class="btn text-white" type="submit">Click to book an appointment</button>
+                  <button class="btn text-white" id="verify" type="submit" onclick="btnVerify()">Click to book an appointment</button>
               </div>
             </form>
           </div>
       </div>
   </section>
+  <script src="{%static 'core/js/sweetalert.min.js'%}"></script>
+    <script src="{%static 'core/js/axios.min.js'%}" ></script>
+    <script src="{%static 'core\js\verify.js'%}"></script>
 </body>
 </html>

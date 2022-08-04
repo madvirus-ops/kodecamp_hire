@@ -26,14 +26,14 @@
               </a>
           </nav>
         <div class="d-flex form-div justify-content-between" style="gap: 1px;">
-            <div class="image position-relative">
-                <div class="wineImg"></div>
+            <div class="image position-relative ">
+                <div class="wineImg d-none  d-md-block d-sm-block" ></div>
                 <div class="position-absolute top-50">
-                    <h3 class="text-white mt-3 text-center fs-1">Register to be among  our team</h3>
+                    <h3 class="text-white mt-3 text-center fs-1 d-none  d-md-block d-sm-block">Register to be among  our team</h3>
                 </div>
             </div>
             <div class="form-body">
-                <div class="logo-right position-relative mb-4">
+                <div class="logo-right position-relative mb-4 ">
                     <a class="navbar-brand" style="float: right;">
                         <img src="{% static 'core/img/landing-page img/site-logo.png'%}" width="20" height="20" class="img-fluid" alt="logo" />
                         <span class="site-logo" style="color: #522B05;">CRYSTALEVENT</span>
@@ -109,9 +109,8 @@
             </div>
         </div>
     </section>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-     
+    <script src="{%static 'core/js/sweetalert.min.js'%}"></script>
+    <script src="{%static 'core/js/axios.min.js'%}" ></script>   
     <script src="{%static 'core\js\vendor.js'%}"></script>
 </body>
 </html>

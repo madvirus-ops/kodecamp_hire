@@ -49,7 +49,7 @@ try {
             title: 'Form submitted successfully, please confirm in next page '
             });
             setTimeout(() => {
-            window.location.href = "/auth/vendor/verify";
+            window.location.href = "/auth/vendor/verify?event_name="+res.data.event_name;
             }, 1500);
         
     }

@@ -21,4 +21,4 @@ class VendorModel(models.Model):
     categories = models.CharField(max_length=30)
 
     def __str__(self):
-        return self.name + self.categories
+        return self.name + " the "+ self.categories

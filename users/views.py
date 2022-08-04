@@ -2,6 +2,7 @@ import json
 from multiprocessing import context
 from django.shortcuts import render,redirect
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from users.models import VendorModel
 from django.contrib.auth import authenticate, login
@@ -67,7 +68,8 @@ def Auth_User(request):
         if user is not None:
             login(request, user)
             request.session['username'] = username
-            return JsonResponse({"status": "success"})
+            print(request.session['username'])
+            #return JsonResponse({"status": "success"})
         else:
             return JsonResponse({"status": "error"}) 
     else:
@@ -105,11 +107,12 @@ def Another_Password(request):
             return redirect("users:new-password")
     return render(request, "users/new-password.html")
 
-
+@login_required
 def Vendoriew(request):
         return render(request, "users/vendor.html")
 # def checkauth():
 #     return ( request.session['username']!=="")?"":render(request, "users/vendor.html")
+@login_required
 def VendorAuth(request):
     res = json.loads(request.body)
     event_name = res['name']
@@ -126,17 +129,28 @@ def VendorAuth(request):
         v_save.save()
         # details = VendorModel.objects.get(name=name)
         request.session['event_name'] = event_name
-        Vendorconfirm(event_name)
-        return JsonResponse({"status": "success"})
+        # Vendorconfirm(event_name)
+        return JsonResponse({"status": "success","event_name":event_name})
 
 
-
+@login_required
 def Vendorconfirm(request):
-    if request.session.has_key('event_name'):
-        name = request.session['event_name']
-        vendor = VendorModel.objects.get(name=name)
-        context = {
-            vendor : vendor
-        }
-        return render(request, 'users/verify.html',context)
-    return render(request, 'users/verify.html')
+    event_name = request.GET['event_name']
+    vendor = VendorModel.objects.get(name=event_name)
+    context = {
+                "vendor" : vendor
+            }
+    return render(request, "users/verify.html",context)
+
+
+
+    #print(request.GET["event_name"])
+    # if request.session.has_key('event_name') :
+    #     name = request.session['event_name']
+        
+    #     vendor = VendorModel.objects.get(name=name)
+    #     context = {
+    #         vendor : vendor
+    #     }
+    #     return render(request, 'users/verify.html',context)
+   # return render(request, 'users/verify.html')
