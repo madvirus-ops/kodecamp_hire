@@ -68,8 +68,8 @@ def Auth_User(request):
         if user is not None:
             login(request, user)
             request.session['username'] = username
-            print(request.session['username'])
-            #return JsonResponse({"status": "success"})
+           # print(request.session['username'])
+            return JsonResponse({"status": "success"})
         else:
             return JsonResponse({"status": "error"}) 
     else:

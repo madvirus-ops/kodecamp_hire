@@ -11,14 +11,17 @@ const Toast = Swal.mixin({
     })
 
 function  btnVerify(){
+    try {
      document.getElementById("vendor").disabled=true;
-    swal.fire({
-        title: 'Verifying...',
-        text: 'Please wait',
-        onBeforeOpen: () => {
-            Swal.showLoading()
-            }
-
-        })
+     Toast.fire({
+        icon: 'success',
+        title: 'Verifying...'
+      });
+      setTimeout(() => {
         window.location.href = "/home";
+      }, 1500);
     }
+    catch(err){
+        console.log(err);
+    }
+}
