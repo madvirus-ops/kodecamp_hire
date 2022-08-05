@@ -11,7 +11,12 @@ urlpatterns =[
     path('auth',views.Auth_User,name='auth'),
     path('authup',views.authup,name='authup'),
     path('reset-password',views.Password_Reset,name='reset-password'),
-    path('new-password',views.Another_Password,name='new-password')
+    path('new-password',views.Another_Password,name='new-password'),
+    path('vendor-auth',views.VendorAuth,name='vendor-auth'),
+    path('vendor-confirm',views.Vendorconfirm,name='vendor-confirm'),
+    path('vendor',views.Vendoriew,name="vendor"),
+    path('vendor/verify',views.Vendorconfirm,name='verify')
+
 ]
 
 

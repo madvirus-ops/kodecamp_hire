@@ -46,6 +46,7 @@ async function  btnSignup(){
     var password2 = document.querySelector('#password2').value;
     var check = document.querySelector('#check').value;
     if (password1=="" || password2=="" || username=="" || email=="" || check=="") {
+      document.getElementById("signup").disabled=false;
     Toast.fire({
         icon: 'error',
         title: 'All fields are required'
@@ -90,6 +91,7 @@ async function  btnSignup(){
             icon: 'error',
             title: 'Something went wrong'
           })
+          // calert()
 
       }
    } catch (error) {
@@ -97,3 +99,21 @@ async function  btnSignup(){
    }
 }
 }
+// function calert(timer,title,icon,position){
+//   const Toast = Swal.mixin({
+//     toast: true,
+//     position: position,
+//     showConfirmButton: false,
+//     timer: timer,
+//     timerProgressBar: true,
+//     didOpen: (toast) => {
+//       toast.addEventListener('mouseenter', Swal.stopTimer)
+//       toast.addEventListener('mouseleave', Swal.resumeTimer)
+//     }
+//   })
+//   Toast.fire({
+//     icon: icon,
+//     title: title
+//   })
+
+// }

@@ -1,11 +1,12 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
-  <link rel="stylesheet" href="./css/verify.css">
+  <link rel="stylesheet" href="{%static 'core/css/bootstrap.min.css'%}">
+  <link rel="stylesheet" href="{%static 'core/css/verify.css'%}">
   <link rel="icon" href="favicon.ico">
   <title>Verify | CRYSTALEVENT</title>
 </head>
@@ -15,7 +16,7 @@
       <button type="button" class="btn back ms-2"><a href="./vendor.html" style="color: #fff;">Back</a></button>
         <a class="navbar-brand marginStyle">
             <img
-            src="./img/landing-page img/site-logo.png"
+            src="{% static 'core/img/landing-page img/site-logo.png'%}"
             width="20"
             height="20"
             class="img-fluid"
@@ -26,62 +27,66 @@
     </nav>
       <div class="d-flex form-div justify-content-between" style="gap: 1px;">
           <div class="image position-relative">
-              <div class="wineImg"></div>
+              <div class="wineImg d-none  d-md-block d-sm-block"></div>
               <div class="position-absolute top-50">
-                  <h3 class="text-white mt-3 text-center fs-1">Register to be among  our team</h3>
+                  <h3 class="text-white mt-3 text-center fs-1 d-none  d-md-block d-sm-block">Register to be among  our team</h3>
               </div>
           </div>
           <div class="form-body">
             <div class="logo-right position-relative mb-4">
               <a class="navbar-brand " style="float: right;">
-                <img src="./img/landing-page img/site-logo.png" width="20" height="20" class="img-fluid" alt="logo" />
+                <img src="{%static 'core/img/landing-page img/site-logo.png'%}" width="20" height="20" class="img-fluid" alt="logo" />
                 <span class="site-logo" style="color: #522B05;">CRYSTALEVENT</span>
               </a>
             </div>
             <h3 class="text-center pt-5 mb-5 fw-bold">Verify your details</h3>
 
-            <form class="">
+            <form class="" method="post">
+              {%csrf_token%}
                 <div class="my-5">
                   <h5 class="fw-bold">Your Name</h5>
-                  <p class="fs-5">Kodecamp hire event</p>
+                  <p class="fs-5">{{vendor.name}}</p>
                 </div>
 
                 <div class="my-5">
                   <h5 class="fw-bold">Email</h5>
-                  <p class="fs-5">Kodecamp101@gmail.com</p>
+                  <p class="fs-5">{{vendor.email}}</p>
                 </div>
 
                 <div class="my-5">
                   <h5 class="fw-bold">Phone Number</h5>
-                  <p class="fs-5">0907493045</p>
+                  <p class="fs-5">{{vendor.phonenumber}}</p>
                 </div>
 
                 <div class="my-5">
                   <h5 class="fw-bold">Select categories</h5>
-                  <p class="fs-5">Catering and photography</p>
+                  <p class="fs-5">{{vendor.categories}}</p>
                 </div>
 
                 <div class="my-5">
                   <h5 class="fw-bold">State of residence</h5>
-                  <p class="fs-5">Enugu state</p>
+                  <p class="fs-5">{{vendor.residence}}</p>
                 </div>
 
                 <div class="my-5">
                   <h5 class="fw-bold">LGA</h5>
-                  <p class="fs-5">Nsukka West LGA</p>
+                  <p class="fs-5">{{vendor.lga}}</p>
                 </div>
 
                 <div>
                   <h5 for="experience" class="fw-bold">Experience</h5>
-                  <p class="fs-5">I have been into catering since 2015. <br> I have served in big occasions like the AIT award night 2019 and trust i would be of great use to the company</p>
+                  <p class="fs-5">{{vendor.experience}}</p>
                 </div>
 
                 <div class="d-grid gap-2 bg-hire text-white rounded" style="margin-top: 50px;">
-                  <button class="btn text-white" type="submit">Click to book an appointment</button>
+                  <button class="btn text-white" id="verify" type="submit" onclick="btnVerify()">Click to book an appointment</button>
               </div>
             </form>
           </div>
       </div>
   </section>
+  <script src="{%static 'core/js/sweetalert.min.js'%}"></script>
+    <script src="{%static 'core/js/axios.min.js'%}" ></script>
+    <script src="{%static 'core\js\verify.js'%}"></script>
 </body>
 </html>
