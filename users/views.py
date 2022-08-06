@@ -154,3 +154,9 @@ def Vendorconfirm(request):
     #     }
     #     return render(request, 'users/verify.html',context)
    # return render(request, 'users/verify.html')
+
+def Profile(request):
+    return render(request, 'users/edit-profile.html')
+
+def ProfileEdit(request):
+    return render(request, 'users/profile.html')

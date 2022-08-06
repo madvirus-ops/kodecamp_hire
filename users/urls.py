@@ -15,7 +15,9 @@ urlpatterns =[
     path('vendor-auth',views.VendorAuth,name='vendor-auth'),
     path('vendor-confirm',views.Vendorconfirm,name='vendor-confirm'),
     path('vendor',views.Vendoriew,name="vendor"),
-    path('vendor/verify',views.Vendorconfirm,name='verify')
+    path('vendor/verify',views.Vendorconfirm,name='verify'),
+    path('profile',views.Profile,name='profile'),
+    path('profile/edit',views.ProfileEdit,name='profile-edit'),
 
 ]
 
