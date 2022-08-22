@@ -156,7 +156,14 @@ def Vendorconfirm(request):
    # return render(request, 'users/verify.html')
 
 def Profile(request):
+    
     return render(request, 'users/profile.html')
 
 def ProfileEdit(request):
-    return render(request, 'users/edit-profile.html')
+    username = request.user.username
+    detail = User.objects.get(username=username)
+    context = {
+        "detail" : detail
+    }
+
+    return render(request, 'users/edit-profile.html',context)
