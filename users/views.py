@@ -8,6 +8,7 @@ from users.models import VendorModel,CybersafeModel
 from django.contrib.auth import authenticate, login
 import sweetify
 from django.http import JsonResponse 
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 
 # Create your views here.
@@ -169,6 +170,7 @@ def ProfileEdit(request):
     return render(request, 'users/edit-profile.html',context)
 
 #=====CYBERSAFE PROPERTIES=====
+@ensure_csrf_cookie
 def cybersafe(request):
     res = json.loads(request.body)
     email= res['email']
