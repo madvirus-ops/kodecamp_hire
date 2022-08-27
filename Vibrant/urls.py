@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from django.contrib.auth import views as auth_views
+from users import views as user_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('core.urls')),
     path('auth/',include('users.urls')),
     path('signout/',auth_views.LogoutView.as_view(template_name='users/logout.html'),name="signout"),
-    path('cybersafe/cal/contact',views.cybersafe,name="cybersafe")
+    path('cybersafe/cal/contact',user_views.cybersafe,name="cybersafe")
 ]

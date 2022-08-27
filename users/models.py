@@ -54,3 +54,12 @@ class Profile(models.Model):
             output_size = (300,300)
             img.thumbnail(output_size)
             img.save(self.image.path)
+
+
+class CybersafeModel(models.Model):
+    email = models.EmailField(max_length=255)
+    subject = models.CharField(max_length=255)
+    message = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f'{self.email} Messages'
