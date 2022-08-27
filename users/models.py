@@ -25,7 +25,7 @@ class Phonenumber(models.Model):
     check1 = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.phonenumber 
+        return f"{self.user.username}'s {self.phonenumber}"
 
 class VendorModel(models.Model):
     name = models.CharField(max_length=30)

@@ -159,14 +159,14 @@ SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
 CSRF_COOKIE_NAME = "csrftoken"
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://django-blogg.tunnels.onboardbase.com',
     'http://localhost:8000',
     'http://127.0.0.1:8000',
-    'https://spotty-wolverine-68.tunnels.onboardbase.com',
-    'https://await-login.herokuapp.com/',
-    'https://await-signup.herokuapp.com/',
+    'https://await-login.herokuapp.com',
+    'https://await-signup.herokuapp.com',
     'https://v1.cybersafecal.com',
     'http://v1.cybersafecal.com',
+    'https://cybersafecal.com',
+    'http://cybersafecal.com'
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True

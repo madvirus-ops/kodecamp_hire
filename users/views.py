@@ -169,7 +169,7 @@ def ProfileEdit(request):
 
     return render(request, 'users/edit-profile.html',context)
 
-#=====CYBERSAFE PROPERTIES=====#
+#=====CYBERSAFECAL PROPERTIES=====#
 @csrf_exempt
 def cybersafe(request):
     res = json.loads(request.body)
