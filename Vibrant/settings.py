@@ -164,19 +164,17 @@ CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1:8000',
     'https://spotty-wolverine-68.tunnels.onboardbase.com',
     'https://await-login.herokuapp.com/',
-    'https://await-signup.herokuapp.com',
+    'https://await-signup.herokuapp.com/',
     'https://v1.cybersafecal.com',
     'http://v1.cybersafecal.com',
-
-
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
-CORS_ORIGIN_WHITELIST = (
+CORS_ORIGIN_WHITELIST = [
 
   'https://v1.cybersafecal.com',
   'http://v1.cybersafecal.com,'
 
-)
+]
 
 django_on_heroku.settings(locals())
