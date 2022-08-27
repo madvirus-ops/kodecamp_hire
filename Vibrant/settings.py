@@ -163,6 +163,7 @@ CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1:8000',
     'https://spotty-wolverine-68.tunnels.onboardbase.com',
     'https://await-login.herokuapp.com/',
+    'https://await-signup.herokuapp.com',
     'https://v1.cybersafecal.com',
     'http://v1.cybersafecal.com',
 
