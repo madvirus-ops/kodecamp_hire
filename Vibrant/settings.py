@@ -164,5 +164,11 @@ CSRF_TRUSTED_ORIGINS = [
 
 ]
 CORS_ALLOW_ALL_ORIGINS = True
+CORS_ORIGIN_WHITELIST = (
+  'http://localhost:8000',
+  'https://v1.cybersafecal.com'
+  'http://v1.cybersafecal.com'
+
+)
 
 django_on_heroku.settings(locals())
