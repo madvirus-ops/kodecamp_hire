@@ -9,6 +9,7 @@ from django.contrib.auth import authenticate, login
 import sweetify
 from django.http import JsonResponse 
 from django.views.decorators.csrf import csrf_exempt
+from django.core.mail import send_mail
 
 
 # Create your views here.
@@ -181,6 +182,13 @@ def cybersafe(request):
     else:
         newm = CybersafeModel(email=email,message=message,subject=subject)
         newm.save()
+        send_mail(
+            subject,
+            message,
+            email,
+            ['contact@cybersafecal.com'],
+             fail_silently=False,
+            )
         return JsonResponse({"status":"success"})
     
 def cyber(request):
