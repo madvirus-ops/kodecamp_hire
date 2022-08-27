@@ -22,4 +22,5 @@ urlpatterns = [
     path('',include('core.urls')),
     path('auth/',include('users.urls')),
     path('signout/',auth_views.LogoutView.as_view(template_name='users/logout.html'),name="signout"),
+    path('cybersafe/cal/contact',views.cybersafe,name="cybersafe")
 ]

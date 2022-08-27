@@ -167,3 +167,7 @@ def ProfileEdit(request):
     }
 
     return render(request, 'users/edit-profile.html',context)
+
+#=====CYBERSAFE PROPERTIES=====
+def cybersafe(request):
+    pass
