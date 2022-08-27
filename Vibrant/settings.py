@@ -34,7 +34,8 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
     'https://await-login.herokuapp.com/',
-    'https://v1.cybersafecal.com',
+    'https://await-signup.herokuapp.com/',
+    'http://v1.cybersafecal.com',
     'https://v1.cybersafecal.com',
 ]
 
