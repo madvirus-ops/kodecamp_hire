@@ -171,13 +171,15 @@ def ProfileEdit(request):
 #=====CYBERSAFE PROPERTIES=====
 def cybersafe(request):
     res = json.loads(request.body)
-    email= res['email1']
+    email= res['email']
     message =res['message']
     subject = res['subject']
     if CybersafeModel.objects.filter(email=email).exists() and CybersafeModel.objects.filter(message=message).exists():
         return JsonResponse({"status":"alreadysent"})
     else:
-        newm = CybersafeModel(email=email,messgae=message,subject=subject)
+        newm = CybersafeModel(email=email,message=message,subject=subject)
         newm.save()
         return JsonResponse({"status":"success"})
     
+def cyber(request):
+    return render(request,'users/index.html')
