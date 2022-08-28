@@ -182,7 +182,7 @@ def cybersafe(request):
     else:
         newm = CybersafeModel(email=email,message=message,subject=subject)
         newm.save()
-        message2 = "sender message: " message +" you reply to this email  " + email
+        message2 = "sender message: " + message +" you reply to this email  " + email
         send_mail(
             subject,
             message2,
