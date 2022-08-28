@@ -149,13 +149,17 @@ LOGOUT_URL = 'signout'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'smtp.mailgun.org'
 EMAIL_PORT =  '587'
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "edwinayabie3000"
-EMAIL_HOST_PASSWORD = 'edwinbeshel'
+EMAIL_HOST_USER = "postmaster@sandboxf3242739625549b49ec25f088da8889d.mailgun.org"
+EMAIL_HOST_PASSWORD = '7313424522205b2313f9a7181126088d-c76388c3-fd568c51'
+
+
 SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
 #SWEETIFY_SWEETALERT_THEME = 'bootstrap4'
+
+
 CSRF_COOKIE_NAME = "csrftoken"
 
 CSRF_TRUSTED_ORIGINS = [
