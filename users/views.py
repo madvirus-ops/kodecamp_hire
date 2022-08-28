@@ -182,13 +182,16 @@ def cybersafe(request):
     else:
         newm = CybersafeModel(email=email,message=message,subject=subject)
         newm.save()
+        message2 = message +"   " + email
         send_mail(
             subject,
             message,
-            email,
+            'contact@cybersafecal.com',
             ['contact@cybersafecal.com'],
              fail_silently=False,
             )
+            
+           
         return JsonResponse({"status":"success"})
     
 def cyber(request):
