@@ -37,6 +37,7 @@ ALLOWED_HOSTS = [
     'https://await-signup.herokuapp.com/',
     'http://v1.cybersafecal.com',
     'https://v1.cybersafecal.com',
+   'https://vibrant.up.railway.app',
 ]
 
 
@@ -170,7 +171,8 @@ CSRF_TRUSTED_ORIGINS = [
     'https://v1.cybersafecal.com',
     'http://v1.cybersafecal.com',
     'https://cybersafecal.com',
-    'http://cybersafecal.com'
+    'http://cybersafecal.com',
+    'https://vibrant.up.railway.app',
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
