@@ -1,1 +1,1 @@
-web: gunicorn Vibrant.wsgi
+web: python manage.py migrate && gunicorn Vibrant.wsgi
