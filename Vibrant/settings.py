@@ -149,12 +149,20 @@ LOGOUT_URL = 'signout'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.postmarkapp.com'
+# EMAIL_PORT =  '587'
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = "d4aeb219-38d6-413f-97a0-11a3f0f3487e"
+# EMAIL_HOST_PASSWORD = 'd4aeb219-38d6-413f-97a0-11a3f0f3487e'
+
+#email config
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.postmarkapp.com'
+EMAIL_HOST = 'smtp-relay.sendinblue.com'
 EMAIL_PORT =  '587'
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "d4aeb219-38d6-413f-97a0-11a3f0f3487e"
-EMAIL_HOST_PASSWORD = 'd4aeb219-38d6-413f-97a0-11a3f0f3487e'
+EMAIL_HOST_USER = 'edwinayabie1@gmail.com'
+EMAIL_HOST_PASSWORD = '0JwIETLt4q7BxmY6'
 
 
 SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
