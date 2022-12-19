@@ -10,7 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+
 import os
+from dotenv import load_dotenv
 from pathlib import Path
 import django_on_heroku
 import dj_database_url
@@ -21,11 +23,15 @@ import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+
+load_dotenv(os.path.join(BASE_DIR, ".env"))
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-g2+kocg-hwzbo$_x13359%%8j3j4cc27qsp1&@0e(#*(2%#g7k'
+SECRET_KEY = os.getenv("secret_key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -158,11 +164,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #email config
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp-relay.sendinblue.com'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT =  '587'
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'edwinayabie1@gmail.com'
-EMAIL_HOST_PASSWORD = '0JwIETLt4q7BxmY6'
+EMAIL_HOST_USER = os.getenv("smtp_user")
+EMAIL_HOST_PASSWORD = os.getenv("smtp_pass")
 
 
 SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
