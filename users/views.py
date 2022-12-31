@@ -1,12 +1,12 @@
 import json
-from multiprocessing import context
+import requests
+import threading
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from users.models import VendorModel,CybersafeModel
 from django.contrib.auth import authenticate, login
-import sweetify
 from django.http import JsonResponse 
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import send_mail
@@ -193,6 +193,26 @@ def cybersafe(request):
             
            
         return JsonResponse({"status":"success"})
-    
-def cyber(request):
-    return render(request,'users/index.html')
+@csrf_exempt  
+def anon_spammer(request):
+    res = json.loads(request.body)
+    message= res['message']
+    count = 0
+    limit = int(res['times'])
+    link = res['link']
+    for i in range(1,limit):
+        count+=1
+        response = requests.post(link, data={'message':f'{message}.{count}','btn-msg':''})
+        if response.status_code == 200:
+            print(f'message sent {count} times')
+        else:
+            print(response.status_code,link,message,)
+            return JsonResponse({"status":response.status_code})
+    # print("done")
+    return JsonResponse({"status":"done"})   
+    # print("done")
+
+
+
+def anon_render(request):
+    return render(request, 'core/anon.html')
