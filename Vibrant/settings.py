@@ -167,8 +167,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT =  '587'
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "edwinayabie3000@gmail.com" # os.getenv("smtp_user")
-EMAIL_HOST_PASSWORD = "edwinbeshe" #os.getenv("smtp_pass")
+EMAIL_HOST_USER = os.getenv("smtp_user")
+EMAIL_HOST_PASSWORD =os.getenv("smtp_pass")
 
 
 SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
